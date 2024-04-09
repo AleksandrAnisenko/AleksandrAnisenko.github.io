@@ -54,7 +54,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.2.1
         with:
           branch: gh-pages
-          folder: dist
+          folder: storybook-static
           commit-message: "Automatically publish Storybook"
 
       # Останавливаем выполнение строго при неудачных тестах
