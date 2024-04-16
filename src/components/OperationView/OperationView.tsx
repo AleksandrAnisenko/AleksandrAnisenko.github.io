@@ -2,7 +2,7 @@ import React from 'react';
 import { formatDate } from '../../helpers';
 import style from'./OperationView.module.scss';
 
-interface Props {
+interface OperationViewProps {
   sum: number;
   category: string;
   title: string;
@@ -10,7 +10,7 @@ interface Props {
   date: Date;
 }
 
-export const OperationView: React.FC<Props> = ({ sum, category, title, description, date }) => {
+export const OperationView: React.FC<OperationViewProps> = ({ sum, category, title, description, date }) => {
 
   return (
     <div className={style.operation__view}>

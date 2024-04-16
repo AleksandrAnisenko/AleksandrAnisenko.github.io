@@ -1,13 +1,13 @@
 import React from 'react';
 import style from'./OperationShortView.module.scss';
 
-interface Props {
+interface OperationShortViewProps {
   sum: number;
   category: string;
   title: string;
   description: string;
 }
-export const OperationShortView: React.FC<Props> = ({ sum, category, title, description }) => {
+export const OperationShortView: React.FC<OperationShortViewProps> = ({ sum, category, title, description }) => {
   return (
     <div className={style.operation__short}>
       <div className={style.operation__short_sum}>Сумма: {sum} руб.</div>
