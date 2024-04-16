@@ -1,0 +1,27 @@
+.operation__short {
+    width: 300px;
+    border: 1px solid #8f8a8a;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .operation__short_sum {
+    font-weight: bold;
+  }
+  
+  .operation__short_category {
+    color: #007bff;
+  }
+  
+  .operation__short_title {
+    margin-top: 5px;
+    font-size: 18px;
+  }
+  
+  .operation__short_description {
+    margin-top: 5px;
+    color: #666;
+  }
