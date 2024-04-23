@@ -9,8 +9,8 @@ export const Header: React.FC = () => {
     <div className={style.root}>
       <Logo />
       <div>
-        <ThemeSwitcher className={style.switcher}></ThemeSwitcher>
-        <LangSwitcher className={style.switcher}></LangSwitcher>
+        <ThemeSwitcher className={style.switcher}/>
+        <LangSwitcher className={style.switcher}/>
       </div>
     </div>
   );

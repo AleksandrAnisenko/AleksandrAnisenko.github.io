@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <LocalizationInitiator />
       <ThemeProvider>
-        <Header></Header>
+        <Header/>
       </ThemeProvider>
     </div>
   );

@@ -17,7 +17,7 @@ export const LangSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
       <button type="button" className={cn(style.root, className)} onClick={() => i18n.changeLanguage(lang)}>
       {lang}
       </button>
-      <LangSwitchTest></LangSwitchTest>
+      <LangSwitchTest/>
     </>
   );
 };
