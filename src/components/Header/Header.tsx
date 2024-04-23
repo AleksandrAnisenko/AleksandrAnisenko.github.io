@@ -1,15 +1,17 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React from 'react';
 import style from './Header.module.scss';
 import Logo from '../Logo/Logo';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
+import { LangSwitcher } from '../LangSwitcher/LangSwitcher';
 
-type HeaderProps = {
-  children?: ReactNode;
-};
-
-export const Header = ({ children} : HeaderProps): ReactElement => {
+export const Header: React.FC = () => {
   return (
     <div className={style.root}>
       <Logo />
+      <div>
+        <ThemeSwitcher className={style.switcher}/>
+        <LangSwitcher className={style.switcher}/>
+      </div>
     </div>
   );
 }
