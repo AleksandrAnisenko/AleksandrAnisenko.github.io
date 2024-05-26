@@ -1,35 +1,30 @@
 import React from 'react';
-import { formatDate } from '../../helpers';
 import style from'./OperationView.module.scss';
+import { TOperation } from 'src/Types';
+import { useTranslation } from 'react-i18next';
 
-interface OperationViewProps {
-  sum: number;
-  category: string;
-  title: string;
-  description: string;
-  date: Date;
-}
+export const OperationView: React.FC<TOperation> = ({ amount, category, name, desc, createdAt }) => {
 
-export const OperationView: React.FC<OperationViewProps> = ({ sum, category, title, description, date }) => {
+  const { t } = useTranslation();
 
   return (
     <div className={style.operation__view}>
       <div className={style.operation__view_header}>
-        <h2>{title}</h2>
-        <button>Редактировать</button>
+        <h2>{name}</h2>
+        <button>{t`buttons.edit`}</button>
       </div>
       <div className={style.operation__view_details}>
         <div className={style.operation__view_sum}>
-          <b>Сумма:</b> {sum} руб.
+          <b>{t`operation.amount`}:</b> {amount} руб.
         </div>
         <div className={style.operation__view_category}>
-          <b>Категория:</b> {category}
+          <b>{t`operation.category`}:</b> {category}
         </div>
         <div className={style.operation__view_description}>
-          <b>Описание:</b> {description}
+          <b>{t`operation.desc`}:</b> {desc}
         </div>
         <div className="opeation-view__date">
-          <b>Дата:</b> {formatDate(date)}
+          <b>{t`operation.createdAt`}:</b> {createdAt}
         </div>
       </div>
     </div>

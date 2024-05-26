@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import { ThemeProvider } from './theming/ThemeProvider';
-import { Header } from './components/Header/Header';
 import { LocalizationInitiator } from './localization/LocalizationInitiator';
+import { Layout } from './components/Layout/Layout';
 
 function App() {
   return (
     <div className="App">
-      <LocalizationInitiator />
+      <LocalizationInitiator/>
       <ThemeProvider>
-        <Header/>
+        <Layout/>
       </ThemeProvider>
     </div>
   );
