@@ -1,5 +1,12 @@
+@import 'src/styles/common';
+
 .root {
     position: relative;
+    height: 100vh;
+    width: 100%;
+    @include theme(background-color, mainBg);
+    @include theme(box-shadow, boxShadow);
+    @include theme(color, text);
 }
 
 .content {
