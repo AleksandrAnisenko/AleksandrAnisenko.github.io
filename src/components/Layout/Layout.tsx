@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import style from './Layout.module.scss';
 import { Header } from '../Header/Header';
 import { OperationsList } from '../OperationsList/OperationsList';
-import { TOperation } from 'src/Types';
+import { TOperation } from '../../Types';
 import { ModalContainer } from '../ModalContainer/ModalContainer';
 
 export const Layout:FC = () => {

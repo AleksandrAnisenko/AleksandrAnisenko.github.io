@@ -1,6 +1,6 @@
 import React from 'react';
 import style from'./OperationView.module.scss';
-import { TOperation } from 'src/Types';
+import { TOperation } from '../../Types';
 import { useTranslation } from 'react-i18next';
 
 export const OperationView: React.FC<TOperation> = ({ amount, category, name, desc, createdAt }) => {

@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { TOperation } from "src/Types";
+import { TOperation } from "../../Types";
 import { OperationView } from "../OperationView/OperationView";
 import { useTranslation } from "react-i18next";
-import { formatDate } from "src/helpers";
+import { formatDate } from "../../helpers";
 
 
 type TOperationsListProps = {
