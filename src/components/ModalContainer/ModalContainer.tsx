@@ -26,7 +26,7 @@ export const ModalContainer: React.FC = () => {
       <Button onClick={toggleModalVisible}>
         {t`buttons.openModal`}
       </Button>
-      <Modal visible={modalVisible} setVisible={setModalVisible}>
+      <Modal visible={modalVisible}>
         {modalText}
       </Modal>
     </div>

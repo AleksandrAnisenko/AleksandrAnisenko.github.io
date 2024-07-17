@@ -6,6 +6,7 @@ import { isNotDefinedString } from '../../../Forms/Forms/validations'
 import { Title } from '../../../Forms/Forms/Title/Tytle';
 import { OperationForm } from '../../../Forms/OperationForm/OperationForm';
 import { OperationFormErrors, OperationFormValues } from '../../../Forms/OperationForm/types';
+import { Modal } from 'src/components/Modal/Modal';
 
 export const CreateOperationForm = memo(() => {
   const { t } = useTranslation();
@@ -41,15 +42,17 @@ export const CreateOperationForm = memo(() => {
   const { submitForm } = formManager;
 
   return (
-    <div>
-      <Title className='title'>{'Создать операцию'}</Title>
-      <OperationForm formManager={formManager} />
+    <Modal visible={true}>
       <div>
-        <Button type="primary" onClick={submitForm}>
-          {'Сохранить'}
-        </Button>
+        <Title className='title'>{'Создать операцию'}</Title>
+        <OperationForm formManager={formManager} />
+        <div>
+          <Button type="primary" onClick={submitForm}>
+            {'Сохранить'}
+          </Button>
+        </div>
       </div>
-    </div>
+    </Modal>
   );
 });
 

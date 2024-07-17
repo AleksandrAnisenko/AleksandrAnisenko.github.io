@@ -1,8 +1,13 @@
 .button {
+  text-align: center;
+    margin: 10px;
     cursor: pointer;
     outline: none;
     padding: 5px 10px;
-    border: none;
     border-radius: 3px;
     background-color: unset;
+
+    &:hover {
+      background-color: #e6e1e1;
+    }
   }
