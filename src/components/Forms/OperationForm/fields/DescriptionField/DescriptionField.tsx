@@ -7,7 +7,6 @@ import { FormItem } from '../../../Forms/FormItem/FormItem';
 import { OperationFormProps } from '../../types';
 
 export type DescriptionFieldProps = Pick<OperationFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
-  submitCount: number;
   touched: boolean;
   errors: string;
   value: string;
@@ -16,10 +15,10 @@ export type DescriptionFieldProps = Pick<OperationFormProps, 'className' | 'disa
 };
 
 export const DescriptionField = memo<DescriptionFieldProps>(
-  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled, submitCount }) => {
+  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched, submitCount);
+    const { validateStatus, help } = getValidates(errors, touched);
 
     return (
       <FormItem

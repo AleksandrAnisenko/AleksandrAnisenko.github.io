@@ -5,7 +5,7 @@ import { ProfileFormProps } from './types';
 
 export const ProfileForm = memo<ProfileFormProps>(
   ({ className, formManager, formElement, autoFocusElement, disabled }) => {
-    const { values, touched, errors, submitCount, handleBlur, handleSubmit, handleChange } = formManager;
+    const { values, touched, errors, handleBlur, handleSubmit, handleChange } = formManager;
 
     return (
       <form ref={formElement} onSubmit={handleSubmit}>
@@ -15,7 +15,6 @@ export const ProfileForm = memo<ProfileFormProps>(
           onChange={handleChange}
           value={values.name}
           errors={errors.name}
-          submitCount={submitCount}
           touched={touched.name}
           disabled={disabled}
         />
@@ -24,7 +23,6 @@ export const ProfileForm = memo<ProfileFormProps>(
           onChange={handleChange}
           value={values.about}
           errors={errors.about}
-          submitCount={submitCount}
           touched={touched.about}
           disabled={disabled}
         />

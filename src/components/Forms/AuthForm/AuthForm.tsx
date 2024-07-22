@@ -5,7 +5,7 @@ import { AuthFormProps } from './types';
 
 export const AuthForm = memo<AuthFormProps>(
   ({ formManager, formElement, autoFocusElement, disabled }) => {
-    const { values, touched, errors, submitCount, handleBlur, handleSubmit, handleChange } = formManager;
+    const { values, touched, errors, handleBlur, handleSubmit, handleChange } = formManager;
 
     return (
       <form ref={formElement} onSubmit={handleSubmit}>
@@ -15,7 +15,6 @@ export const AuthForm = memo<AuthFormProps>(
           onChange={handleChange}
           value={values.email}
           errors={errors.email}
-          submitCount={submitCount}
           touched={touched.email}
           disabled={disabled}
         />
@@ -25,7 +24,6 @@ export const AuthForm = memo<AuthFormProps>(
           onChange={handleChange}
           value={values.password}
           errors={errors.password}
-          submitCount={submitCount}
           touched={touched.password}
           disabled={disabled}
         />

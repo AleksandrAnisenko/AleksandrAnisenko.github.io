@@ -7,7 +7,6 @@ import { getValidates } from '../../Forms/validations';
 import { FormItem } from '../../Forms/FormItem/FormItem';
 
 export type AboutFieldProps = Pick<ProfileFormProps, 'className' | 'disabled'> & {
-  submitCount: number;
   touched: boolean;
   errors: string;
   value: string;
@@ -16,10 +15,10 @@ export type AboutFieldProps = Pick<ProfileFormProps, 'className' | 'disabled'> &
 };
 
 export const AboutField = memo<AboutFieldProps>(
-  ({ className, onChange, onBlur, touched, value, errors, disabled, submitCount }) => {
+  ({ className, onChange, onBlur, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched, submitCount);
+    const { validateStatus, help } = getValidates(errors, touched);
 
     return (
       <FormItem
