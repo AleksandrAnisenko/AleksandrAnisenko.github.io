@@ -18,7 +18,7 @@ export const DescriptionField = memo<DescriptionFieldProps>(
   ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched);
+    const { validateStatus, help } = getValidates(errors, touched );
 
     return (
       <FormItem

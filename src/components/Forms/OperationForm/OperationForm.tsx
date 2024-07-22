@@ -16,7 +16,6 @@ export const OperationForm = memo<OperationFormProps>(
           onChange={handleChange}
           value={values.name}
           errors={errors.name}
-
           touched={touched.name}
           disabled={disabled}
         />

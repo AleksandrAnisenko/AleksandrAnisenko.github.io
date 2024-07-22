@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Help } from './FormItem/FormItem';
+
 export type ValidateStatus = 'error' | '';
 
 const MIN_LENGTH_PASSWORD = 6;
