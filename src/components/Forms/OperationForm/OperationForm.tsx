@@ -6,8 +6,8 @@ import { CategoryField } from './fields/CathegoryField/CathegoryField';
 import { DescriptionField } from './fields/DescriptionField/DescriptionField';
 
 export const OperationForm = memo<OperationFormProps>(
-  ({ className, formManager, formElement, autoFocusElement, disabled }) => {
-    const { values, touched, errors, submitCount, handleBlur, handleSubmit, handleChange } = formManager;
+  ({ className, formManager, formElement, disabled }) => {
+    const { values, touched, errors, handleBlur, handleSubmit, handleChange } = formManager;
 
     return (
       <form ref={formElement} onSubmit={handleSubmit}>
@@ -16,7 +16,6 @@ export const OperationForm = memo<OperationFormProps>(
           onChange={handleChange}
           value={values.name}
           errors={errors.name}
-          submitCount={submitCount}
           touched={touched.name}
           disabled={disabled}
         />
@@ -25,7 +24,6 @@ export const OperationForm = memo<OperationFormProps>(
           onChange={handleChange}
           value={values.cost}
           errors={errors.cost}
-          submitCount={submitCount}
           touched={touched.cost}
           disabled={disabled}
         />
@@ -34,7 +32,6 @@ export const OperationForm = memo<OperationFormProps>(
           onChange={handleChange}
           value={values.category}
           errors={errors.category}
-          submitCount={submitCount}
           touched={touched.category}
           disabled={disabled}
         />
@@ -43,7 +40,6 @@ export const OperationForm = memo<OperationFormProps>(
           onChange={handleChange}
           value={values.description}
           errors={errors.description}
-          submitCount={submitCount}
           touched={touched.description}
           disabled={disabled}
         />

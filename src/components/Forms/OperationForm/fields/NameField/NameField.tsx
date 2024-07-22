@@ -9,7 +9,6 @@ import { OperationFormProps } from '../../types';
 
 
 export type NameFieldProps = Pick<OperationFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
-  submitCount: number;
   touched: boolean;
   errors: string;
   value: string;
@@ -18,10 +17,10 @@ export type NameFieldProps = Pick<OperationFormProps, 'className' | 'disabled' |
 };
 
 export const NameField = memo<NameFieldProps>(
-  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled, submitCount }) => {
+  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched, submitCount);
+    const { validateStatus, help } = getValidates(errors, touched);
 
     return (
       <FormItem

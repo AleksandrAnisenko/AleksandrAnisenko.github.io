@@ -10,7 +10,6 @@ import { AuthFormProps } from '../../types';
 
 
 export type EmailFieldProps = Pick<AuthFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
-  submitCount: number;
   touched: boolean;
   errors: string;
   value: string;
@@ -21,10 +20,10 @@ export type EmailFieldProps = Pick<AuthFormProps, 'className' | 'disabled' | 'au
 const prefix = <UserOutlined />;
 
 export const EmailField = memo<EmailFieldProps>(
-  ({ onChange, onBlur, autoFocusElement, touched, value, errors, disabled, submitCount }) => {
+  ({ onChange, onBlur, autoFocusElement, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched, submitCount);
+    const { validateStatus, help } = getValidates(errors, touched);
 
     return (
       <FormItem

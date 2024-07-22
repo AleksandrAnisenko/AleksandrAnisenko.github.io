@@ -8,7 +8,6 @@ import { getValidates } from '../../Forms/validations';
 import { FormItem } from '../../Forms/FormItem/FormItem';
 
 export type NameFieldProps = Pick<ProfileFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
-  submitCount: number;
   touched: boolean;
   errors: string;
   value: string;
@@ -19,10 +18,10 @@ export type NameFieldProps = Pick<ProfileFormProps, 'className' | 'disabled' | '
 const prefix = <UserOutlined />;
 
 export const NameField = memo<NameFieldProps>(
-  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled, submitCount }) => {
+  ({ className, onChange, onBlur, autoFocusElement, touched, value, errors, disabled }) => {
     const { t } = useTranslation();
 
-    const { validateStatus, help } = getValidates(errors, touched, submitCount);
+    const { validateStatus, help } = getValidates(errors, touched);
 
     return (
       <FormItem
