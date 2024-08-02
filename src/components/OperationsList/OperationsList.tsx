@@ -3,7 +3,8 @@ import { TOperation } from "../../Types";
 import { OperationView } from "../OperationView/OperationView";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "../../helpers";
-
+import style from './OperationsList.module.scss';
+import { Button } from "../Button/Button";
 
 type TOperationsListProps = {
     operations: TOperation[],
@@ -41,18 +42,20 @@ export const OperationsList: React.FC<TOperationsListProps> = ({operations, addO
     
     return (
         <>
-            {operations.map((operation: TOperation) => (
-                <OperationView
-                    key = {operation.id} 
-                    id={operation.id}
-                    amount={operation.amount}
-                    category={operation.category}
-                    name={operation.name}
-                    desc={operation.desc}
-                    createdAt={operation.createdAt}
-                />
-            ))}
-            <button onClick={handleAddOperation}>{t`buttons.showMore`}</button>
+            <div className={style.list}>
+                {operations.map((operation: TOperation) => (
+                    <OperationView
+                        key = {operation.id} 
+                        id={operation.id}
+                        amount={operation.amount}
+                        category={operation.category}
+                        name={operation.name}
+                        desc={operation.desc}
+                        createdAt={operation.createdAt}
+                    />
+                ))}
+                <Button onClick={handleAddOperation}>{t`buttons.showMore`}</Button>
+            </div>
         </>
 
     )

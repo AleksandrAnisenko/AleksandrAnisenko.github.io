@@ -2,6 +2,7 @@ import React from 'react';
 import style from'./OperationView.module.scss';
 import { TOperation } from '../../Types';
 import { useTranslation } from 'react-i18next';
+import { Button } from '../Button/Button';
 
 export const OperationView: React.FC<TOperation> = ({ amount, category, name, desc, createdAt }) => {
 
@@ -11,7 +12,7 @@ export const OperationView: React.FC<TOperation> = ({ amount, category, name, de
     <div className={style.operation__view}>
       <div className={style.operation__view_header}>
         <h2>{name}</h2>
-        <button>{t`buttons.edit`}</button>
+        <Button>{t`buttons.edit`}</Button>
       </div>
       <div className={style.operation__view_details}>
         <div className={style.operation__view_sum}>
@@ -23,7 +24,7 @@ export const OperationView: React.FC<TOperation> = ({ amount, category, name, de
         <div className={style.operation__view_description}>
           <b>{t`operation.desc`}:</b> {desc}
         </div>
-        <div className="opeation-view__date">
+        <div className={style.opeatio__view_date}>
           <b>{t`operation.createdAt`}:</b> {createdAt}
         </div>
       </div>

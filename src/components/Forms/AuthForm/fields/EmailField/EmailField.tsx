@@ -1,11 +1,12 @@
 import React, { memo } from 'react';
 import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
+
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { getValidates } from '../../../Forms/validations';
 import { FormItem } from '../../../Forms/FormItem/FormItem';
 import { AuthFormProps } from '../../types';
+import { FormikHandlers } from 'formik';
 
 
 

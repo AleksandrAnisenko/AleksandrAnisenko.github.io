@@ -21,3 +21,7 @@ $headerHeight: 40px;
   dark_lightText: map-get($dark, lightText);
   dark_accent: map-get($dark, accent);
 }
+
+a {
+  text-decoration: none;
+}
