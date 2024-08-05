@@ -32,7 +32,7 @@ export const DescriptionField = memo<DescriptionFieldProps>(
           ref={autoFocusElement}
           data-cy="input"
           autoFocus
-          name="description"
+          name="desc"
           onChange={onChange}
           onBlur={onBlur}
           value={value}

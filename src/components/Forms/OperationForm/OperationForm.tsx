@@ -22,9 +22,9 @@ export const OperationForm = memo<OperationFormProps>(
        <CostField
           onBlur={handleBlur}
           onChange={handleChange}
-          value={values.cost}
-          errors={errors.cost}
-          touched={touched.cost}
+          value={values.amount}
+          errors={errors.amount}
+          touched={touched.amount}
           disabled={disabled}
         />
         <CategoryField
@@ -38,9 +38,9 @@ export const OperationForm = memo<OperationFormProps>(
         <DescriptionField
           onBlur={handleBlur}
           onChange={handleChange}
-          value={values.description}
-          errors={errors.description}
-          touched={touched.description}
+          value={values.desc}
+          errors={errors.desc}
+          touched={touched.desc}
           disabled={disabled}
         />
       </form>
