@@ -2,9 +2,9 @@ import { FormProps } from '../Forms/types';
 
 export type OperationFormValues = {
     name: string;
-    cost: number;
+    amount: number;
     category: string;
-    description: string;
+    desc: string;
   };
 
   export type OperationFormErrors = Record<keyof OperationFormValues, string>;

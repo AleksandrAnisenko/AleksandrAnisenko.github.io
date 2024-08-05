@@ -32,7 +32,7 @@ export const CostField = memo<CostFieldProps>(
           ref={autoFocusElement}
           data-cy="input"
           autoFocus
-          name="cost"
+          name="amount"
           onChange={onChange}
           onBlur={onBlur}
           value={value}

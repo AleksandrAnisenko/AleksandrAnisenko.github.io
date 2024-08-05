@@ -6,21 +6,30 @@ import { OperationFormErrors, OperationFormValues } from '../../../Forms/Operati
 import { isNotDefinedString } from '../../../Forms/Forms/validations';
 import { Title } from '../../../Forms/Forms/Title/Tytle';
 import { OperationForm } from '../../../Forms/OperationForm/OperationForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { RootState } from 'src/store';
+import { Modal } from 'src/components/Modal/Modal';
+import { updateOperation } from 'src/store/operationsSlice';
 
 export const UpdateOperationForm = memo(() => {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  const operation = useSelector((state: RootState) => state.operations.operations.find(operation => operation.id === params.id));
   const { onSubmit, validate , initialValues} = useMemo<Pick<FormikConfig<OperationFormValues>, 'onSubmit' | 'validate' | 'initialValues'>>(() => {
 
     return {
         initialValues: {
-          name: 'Test',
-          cost: 50,
-          category: 'CategoryTest',
-          description: ''
+          name: operation.name,
+          amount: operation.amount,
+          category: operation.category,
+          desc: operation.desc
         },
         onSubmit: (values, { setErrors }) => {
-               console.log('Операция обновлена:', initialValues.name, 'новое имя:', values.name);
+          dispatch(updateOperation({id: params.id, createdAt: operation.createdAt, ...values}));
+          navigate('/operations');
         },
         validate: (values) => {
           const errors = {} as OperationFormErrors;
@@ -41,15 +50,17 @@ export const UpdateOperationForm = memo(() => {
   const { submitForm } = formManager;
 
   return (
-    <div>
-      <Title className='title'>{'Редактировать операцию'}</Title>
-      <OperationForm formManager={formManager} />
+    <Modal visible={true}>
       <div>
-        <Button type="primary" onClick={submitForm}>
-          {'Сохранить'}
-        </Button>
+        <Title className='title'>{'Редактировать операцию'}</Title>
+        <OperationForm formManager={formManager} />
+        <div>
+          <Button type="primary" onClick={submitForm}>
+            {'Сохранить'}
+          </Button>
+        </div>
       </div>
-    </div>
+    </Modal>
   );
 });
 

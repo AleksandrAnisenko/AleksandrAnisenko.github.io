@@ -5,6 +5,9 @@
  * В целом сделайте так, как вам будет удобно.
  * */
 
+import { formatDate } from "src/helpers";
+import { TOperation } from "src/Types";
+
 /**
  * Нужно создать тип Category, он будет использоваться ниже.
  * Категория содержит
@@ -60,8 +63,6 @@ type TProduct = {
     category: TCategory
 }
 
-type TOperation = TCost | TProfit;
-
 type TCost = {
     id: string,
     name: string,
@@ -109,8 +110,6 @@ export const createRandomProduct = (createdAt: string): TProduct => {
   const drinkProductNames = ['сок', 'кофе', 'чай', 'газировка', 'вода'];
   const foodProductNames = ['стейк', 'паста', 'бутерброд', 'суп', 'салат'];
 
-  const getDate = (): string => new Date().getTime().toString();
-
   const getRandomArrIndex = (arr: TArrElem[]): number => Math.floor(Math.random() * arr.length);
 
   const getRandomElem = (arr: TArrElem[]): TArrElem => {
@@ -122,11 +121,6 @@ export const createRandomProduct = (createdAt: string): TProduct => {
   const getCategory = (): TCategory => {
     return getRandomElem(categories) as TCategory;
   }
-
-  const getRandomInt = (max = 1000, min = 1): number => {
-    return Math.random() * (max - min) + min;
-  }
-
 /**
  * Создает случайную операцию (Operation).
  * Принимает дату создания (строка)
@@ -134,17 +128,21 @@ export const createRandomProduct = (createdAt: string): TProduct => {
 
 type TType = 'Cost' | 'Profit';
 
-export const createRandomOperation = (createdAt: string): TOperation => {
-    const operation: TType = getRandomElem(['Cost', 'Profit']) as TType;
-    const selectedCategory: TCategory = getCategory();
-    const selectedProductName: string = generateProductName(selectedCategory.name);
-    return {
-        id: getDate(),
-        name: selectedProductName,
-        desc: `${operation} ${getDate()}`,
-        createdAt: createdAt,
-        amount: getRandomInt(),
-        category: selectedCategory,
-        type: operation
-      }
+export const createRandomOperation = (): TOperation => {
+  const selectedCategory: string = 'Категория'+` ${getRandomInt(1, 10)}` ;
+  return {
+      id: getTime(),
+      amount: getRandomInt(),
+      category: selectedCategory,
+      name: 'Имя операции',
+      desc: 'Описание операции',
+      createdAt: getDate(),
+    }
 };
+
+const getRandomInt = (max = 1000, min = 1): number => {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+export const getTime = (): string => new Date().getTime().toString();
+export const getDate = (): string => formatDate().toString();

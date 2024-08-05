@@ -6,11 +6,17 @@ import { AuthForm } from '../../../Forms/AuthForm/AuthForm';
 import { AuthFormErrors, AuthFormValues } from '../../../Forms/AuthForm/types'
 import { isNotDefinedString } from '../../../Forms/Forms/validations';
 import { Title } from '../../../Forms/Forms/Title/Tytle';
+import { fakeToken } from 'src/helpers';
+import s from './SignInForm.module.scss';
+import { setUser } from 'src/store/userSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 export const SingInForm = memo(() => {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { onSubmit, validate , initialValues} = useMemo<Pick<FormikConfig<AuthFormValues>, 'onSubmit' | 'validate' | 'initialValues'>>(() => {
 
     return {
@@ -19,7 +25,11 @@ export const SingInForm = memo(() => {
           password: undefined,
         },
         onSubmit: (values, { setErrors }) => {
-               console.log('Вход успешно осуществлен');
+          const token = fakeToken();
+          const role = 'admin';
+          localStorage.setItem('user', JSON.stringify({'token': token, 'role': role}));
+          dispatch(setUser({ token, role }));
+          navigate('/', { replace: false });
         },
         validate: (values) => {
           const errors = {} as AuthFormErrors;
@@ -51,7 +61,7 @@ export const SingInForm = memo(() => {
   const { submitForm } = formManager;
 
   return (
-    <div>
+    <div className={s.container}>
       <Title className='title'>{'Вход в систему'}</Title>
       <AuthForm formManager={formManager} />
       <div>

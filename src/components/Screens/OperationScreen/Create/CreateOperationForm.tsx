@@ -7,21 +7,28 @@ import { Title } from '../../../Forms/Forms/Title/Tytle';
 import { OperationForm } from '../../../Forms/OperationForm/OperationForm';
 import { OperationFormErrors, OperationFormValues } from '../../../Forms/OperationForm/types';
 import { Modal } from 'src/components/Modal/Modal';
+import { useDispatch } from 'react-redux';
+import { addOperation } from 'src/store/operationsSlice';
+import { getDate, getTime } from 'src/homeworks/ts1/3_write';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateOperationForm = memo(() => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const { onSubmit, validate , initialValues} = useMemo<Pick<FormikConfig<OperationFormValues>, 'onSubmit' | 'validate' | 'initialValues'>>(() => {
 
     return {
         initialValues: {
           name: '',
-          cost: 0,
+          amount: 0,
           category: '',
-          description: ''
+          desc: ''
         },
         onSubmit: (values, { setErrors }) => {
-               console.log('Операция создана :', values.name);
+          dispatch(addOperation({id: getTime(), createdAt: getDate(), ...values}));
+          navigate('/operations');
         },
         validate: (values) => {
           const errors = {} as OperationFormErrors;

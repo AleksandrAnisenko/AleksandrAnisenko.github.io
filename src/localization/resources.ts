@@ -6,6 +6,7 @@ export const resources = {
         showMore: 'Show more',
         switchTheme: 'Switch Theme',
         openModal: 'Open Modal',
+        logOut: 'Log Out'
       },
       operation: {
         amount: 'Amount',
@@ -30,6 +31,7 @@ export const resources = {
         showMore: 'Показать еще',
         switchTheme: 'Сменить Тему',
         openModal: 'Открыть Модалку',
+        logOut: 'Выйти'
       },
       operation: {
         amount: 'Сумма',

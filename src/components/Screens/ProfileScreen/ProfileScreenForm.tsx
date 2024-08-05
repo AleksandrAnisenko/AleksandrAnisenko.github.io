@@ -6,6 +6,9 @@ import { ProfileFormErrors, ProfileFormValues } from '../../Forms/ProfileForm/ty
 import { isNotDefinedString } from '../../Forms/Forms/validations';
 import { Title } from '../../Forms/Forms/Title/Tytle';
 import { ProfileForm } from '../../Forms/ProfileForm/ProfileForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'src/store';
+import { setProfileData } from 'src/store/profileSlice';
 
 
 export type ProfileCompletedFormProps = {
@@ -14,17 +17,19 @@ export type ProfileCompletedFormProps = {
 
 export const ProfileScreenForm = memo<ProfileCompletedFormProps>(({ className }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const profile = useSelector((state: RootState) => state.profile.profileData);
   const { onSubmit, validate, initialValues } = useMemo<
     Pick<FormikConfig<ProfileFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
   >(() => {
 
     return {
       initialValues: {
-        name:'',
-        about: '',
+        name: profile.name || '',
+        about: profile.about || '',
       },
       onSubmit: (values, { setErrors }) => {
-             console.log(values);
+        dispatch(setProfileData({id: profile.id, ...values}));
       },
       validate: (values) => {
         const errors = {} as ProfileFormErrors;
