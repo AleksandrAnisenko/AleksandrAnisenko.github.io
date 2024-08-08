@@ -62,11 +62,11 @@ export const SingInForm = memo(() => {
   return (
     <div className={s.container}>
       <Title className='title'>{'Вход в систему'}</Title>
-      <AuthForm formManager={formManager} />
+      <AuthForm
+          title={'Вход'}
+          formManager={formManager}
+        />
       <div>
-        <Button type="primary" onClick={submitForm}>
-          {'Войти'}
-        </Button>
         <Link to="/signUp" style={{display: 'block'}}>Регистрация</Link>
       </div>
     </div>

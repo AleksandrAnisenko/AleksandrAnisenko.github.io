@@ -61,12 +61,12 @@ export const SingUpForm = memo(() => {
   return (
     <div className={s.container}>
       <Title className='title'>{'Регистрация'}</Title>
-      <AuthForm formManager={formManager} />
+      <AuthForm
+          title={'Регистрация'}
+          formManager={formManager}
+        />
       <div>
       <div style={{color: 'red'}}></div>
-        <Button type="primary" onClick={submitForm}>
-          {'Зарегистрироваться'}
-        </Button>
         <Link to="logIn" style={{display: 'block'}}>Войти</Link>
       </div>
     </div>
