@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { RequireAuth } from './components/RequireAuth/RequireAuth';
 import { setUser } from './store/userSlice';
 import { initApp } from './store/appSlice';
+import { SingUpForm } from './components/Screens/AuthScreen/SignUpForm/SignUpForm';
 
 
 function PageNotFound() {
@@ -23,9 +24,9 @@ function App() {
 
   const dispatch = useDispatch();
   dispatch(initApp())
-  const user =JSON.parse(localStorage.getItem('user'));
-  if(user) {
-    dispatch(setUser(user))
+  const token: string = localStorage.getItem('token');
+  if(token) {
+    dispatch(setUser(token))
   }
   
   return (
@@ -39,7 +40,8 @@ function App() {
               <Layout />
             </RequireAuth>
           } />
-          <Route path='/login' element={<SingInForm />} />
+          <Route path='/logIn' element={<SingInForm />} />
+          <Route path='/signUp' element={<SingUpForm />} />
           <Route path='/notFound' element={<PageNotFound />} />
         </Routes>
         </ThemeProvider>

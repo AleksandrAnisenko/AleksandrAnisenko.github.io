@@ -4,15 +4,13 @@ import { TOperation } from '../../Types';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from 'src/store';
 
 export const OperationView: React.FC<TOperation> = ({ id, amount, category, name, desc, createdAt }) => {
 
   const { t } = useTranslation();
   const navigate = useNavigate();
   
-  const role = useSelector((state: RootState) => state.user.role);
+  const role = 'admin';
   const handleEditOperation = () => navigate(`/updateOperation/${id}`, { replace: false });
 
   return (

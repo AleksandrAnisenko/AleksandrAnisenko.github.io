@@ -2,12 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
   
 interface UserSchema {
   token: string | null;
-  role: string | null 
 }
 
 const initialState: UserSchema = {
   token: null,
-  role: null
 }
 
 
@@ -15,11 +13,13 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser: (state, { payload }: PayloadAction<UserSchema>) => {
-          Object.assign(state, payload);
+        setUser: (state, { payload }: PayloadAction<string>) => {
+          localStorage.setItem('token', payload);
+          state.token = payload;
         },
-        removeUser: (state, action: PayloadAction<UserSchema>) => {
-          Object.assign(state, initialState);
+        removeUser: (state, action: PayloadAction<string>) => {
+          state.token = null;
+          localStorage.removeItem('token');
         },
       },
     selectors: {
