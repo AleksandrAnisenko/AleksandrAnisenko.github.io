@@ -12,3 +12,6 @@ export const formatDate = () => {
 
 const rand = () => Math.random().toString(36).substr(2);
 export const fakeToken = () => rand() + rand();
+
+export const getAuthorizationToken = () =>
+  `Bearer ${localStorage.getItem('token') || ''}`;
