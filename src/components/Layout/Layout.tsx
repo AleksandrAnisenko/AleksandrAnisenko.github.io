@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { setProfileData } from 'src/store/profileSlice';
 import { profile } from 'src/mocks/profileData';
 import { UpdateOperationForm } from '../Screens/OperationScreen/Update/UpdateOperationForm';
+import { getRouteCreateOpeartion, getRouteOpeartions, getRouteProfile, getRouteUpdateOpeartion } from 'src/consts/routerConsts';
 
 export const Layout:FC = () => {
 
@@ -20,10 +21,10 @@ export const Layout:FC = () => {
       <Header/>
       <div className={style.content}>
         <Routes>
-          <Route path='/profile' element={<ProfileScreenForm />} />
-          <Route path='/operations' element={<OperationsList />} />
-          <Route path='/createOperation' element={<CreateOperationForm />} />
-          <Route path='/updateOperation/:id' element={<UpdateOperationForm />} />
+          <Route path={getRouteProfile()} element={<ProfileScreenForm />} />
+          <Route path={getRouteOpeartions()} element={<OperationsList />} />
+          <Route path={getRouteCreateOpeartion()} element={<CreateOperationForm />} />
+          <Route path={getRouteUpdateOpeartion(':id')} element={<UpdateOperationForm />} />
         </Routes>
       </div>
     </div>

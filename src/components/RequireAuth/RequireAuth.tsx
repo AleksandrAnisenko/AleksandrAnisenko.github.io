@@ -1,6 +1,7 @@
 import React, { ReactNode, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import { getRouteLogin } from 'src/consts/routerConsts';
 import { RootState } from 'src/store';
 
 interface RequireAuthProps {
@@ -8,8 +9,7 @@ interface RequireAuthProps {
     children: ReactNode;
   }
   
-
-export const RequireAuth = ({ redirectTo = '/logIn', children }: RequireAuthProps) => {
+export const RequireAuth = ({ redirectTo = getRouteLogin(), children }: RequireAuthProps) => {
   const isAuth = useSelector((state: RootState) => state.user.token);
   const isAppInited = useSelector((state: RootState) => state.app.isInited);
   const location = useLocation();

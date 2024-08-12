@@ -8,6 +8,7 @@ import { Button } from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { removeUser } from 'src/store/userSlice';
+import { getRouteCreateOpeartion, getRouteOpeartions, getRouteProfile } from 'src/consts/routerConsts';
 
 export const Header: React.FC = () => {
   const { t } = useTranslation();
@@ -22,14 +23,14 @@ export const Header: React.FC = () => {
       <Logo />
       <div>
         <Button>
-          <Link to="profile">Profile</Link>
+          <Link to={getRouteProfile()}>Profile</Link>
         </Button>
         <Button>
-          <Link to="operations">Operations</Link>
+          <Link to={getRouteOpeartions()}>Operations</Link>
         </Button>
         {role === 'admin' &&  
           <Button>
-            <Link to="createOperation">New Operation</Link>
+            <Link to={getRouteCreateOpeartion()}>New Operation</Link>
           </Button>
         }
        
