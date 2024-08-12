@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import { FormikConfig, useFormik } from 'formik';
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -6,9 +6,22 @@ import { AuthForm } from '../../../Forms/AuthForm/AuthForm';
 import { AuthFormErrors, AuthFormValues } from '../../../Forms/AuthForm/types'
 import { isNotDefinedString } from '../../../Forms/Forms/validations';
 import { Title } from '../../../Forms/Forms/Title/Tytle';
+import { Link } from 'react-router-dom';
+import s from './SignUpForm.module.scss';
+import { useAuthWithQuery } from 'src/components/useAuthWithQuery';
+import { useDispatch } from 'react-redux';
+import { setUser } from 'src/store/userSlice';
+import { useAuth } from 'src/components/useAuth';
 
 export const SingUpForm = memo(() => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+    dispatch(setUser(token));
+  }, [dispatch]);
 
   const { onSubmit, validate , initialValues} = useMemo<Pick<FormikConfig<AuthFormValues>, 'onSubmit' | 'validate' | 'initialValues'>>(() => {
 
@@ -18,7 +31,6 @@ export const SingUpForm = memo(() => {
           password: undefined,
         },
         onSubmit: (values, { setErrors }) => {
-               console.log('Регистрация прошла успешно');
         },
         validate: (values) => {
           const errors = {} as AuthFormErrors;
@@ -41,22 +53,21 @@ export const SingUpForm = memo(() => {
       };
     }, [ t ]);
 
-  const formManager = useFormik<AuthFormValues>({
-    initialValues,
-    onSubmit,
-    validate,
-  });
+    // const formManager = useAuthWithQuery('signUp');
+    const formManager = useAuth('signUp');
 
-  const { submitForm } = formManager;
+    const { setErrors, initialErrors, setStatus, initialStatus, submitForm } = formManager;
 
   return (
-    <div>
+    <div className={s.container}>
       <Title className='title'>{'Регистрация'}</Title>
-      <AuthForm formManager={formManager} />
+      <AuthForm
+          title={'Регистрация'}
+          formManager={formManager}
+        />
       <div>
-        <Button type="primary" onClick={submitForm}>
-          {'Зарегистрироваться'}
-        </Button>
+      <div style={{color: 'red'}}></div>
+        <Link to="logIn" style={{display: 'block'}}>Войти</Link>
       </div>
     </div>
   );
