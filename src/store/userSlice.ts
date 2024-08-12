@@ -1,30 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-  
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
 interface UserSchema {
   token: string | null;
 }
 
 const initialState: UserSchema = {
   token: null,
-}
-
+};
 
 const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-        setUser: (state, { payload }: PayloadAction<string>) => {
-          localStorage.setItem('token', payload);
-          state.token = payload;
-        },
-        removeUser: (state, action: PayloadAction<string>) => {
-          state.token = null;
-          localStorage.removeItem('token');
-        },
-      },
-    selectors: {
-        selectUser: (state) => state,
+  name: 'user',
+  initialState,
+  reducers: {
+    setUser: (state, { payload }: PayloadAction<string>) => {
+      localStorage.setItem('token', payload);
+      state.token = payload;
     },
+    removeUser: (state, action: PayloadAction<string>) => {
+      state.token = null;
+      localStorage.removeItem('token');
+    },
+  },
+  selectors: {
+    selectUser: (state) => state,
+  },
 });
 
 export const { setUser, removeUser } = userSlice.actions;

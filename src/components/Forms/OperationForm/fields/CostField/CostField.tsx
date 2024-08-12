@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
 import { useTranslation } from 'react-i18next';
-import { getValidates } from '../../../Forms/validations';
 import { FormItem } from '../../../Forms/FormItem/FormItem';
+import { getValidates } from '../../../Forms/validations';
 import { OperationFormProps } from '../../types';
+import { FormikHandlers } from 'formik';
 
 export type CostFieldProps = Pick<OperationFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
   touched: boolean;
@@ -21,12 +21,7 @@ export const CostField = memo<CostFieldProps>(
     const { validateStatus, help } = getValidates(errors, touched);
 
     return (
-      <FormItem
-        title='Стоимость'
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem title="Стоимость" required validateStatus={validateStatus} help={help}>
         <Input
           disabled={disabled}
           ref={autoFocusElement}
@@ -37,7 +32,7 @@ export const CostField = memo<CostFieldProps>(
           onBlur={onBlur}
           value={value}
           type="number"
-          placeholder='Стоимость'
+          placeholder="Стоимость"
         />
       </FormItem>
     );

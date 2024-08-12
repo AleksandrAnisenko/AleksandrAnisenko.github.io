@@ -1,16 +1,16 @@
 import { useCallback } from 'react';
 import { useFormik } from 'formik';
 import { FormikHelpers } from 'formik/dist';
-import { AuthFormValues } from './Forms/AuthForm/types';
-import { AuthResult } from 'src/api/rtqApi';
-import { setUser } from 'src/store/userSlice';
-import { COMMAND_ID } from 'src/shared/consts/api';
 import { useDispatch } from 'react-redux';
-import { $api } from 'src/api/api';
-import { errorHandler } from 'src/shared/utils/ErrorHandler';
 import { useNavigate } from 'react-router-dom';
+import { $api } from '../api/api';
+import { AuthResult } from '../api/rtqApi';
+import { COMMAND_ID } from '../shared/consts/api';
+import { errorHandler } from '../shared/utils/ErrorHandler';
+import { setUser } from '../store/userSlice';
+import { AuthFormValues } from './Forms/AuthForm/types';
 
-type UserAuthMode = 'signIn' | 'signUp'
+type UserAuthMode = 'signIn' | 'signUp';
 
 const initialValues: AuthFormValues = {
   email: '',

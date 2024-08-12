@@ -1,15 +1,14 @@
 import React, { memo, useMemo } from 'react';
-import { FormikConfig, useFormik } from 'formik';
 import { Button } from 'antd';
+import { FormikConfig, useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { ProfileFormErrors, ProfileFormValues } from '../../Forms/ProfileForm/types';
-import { isNotDefinedString } from '../../Forms/Forms/validations';
-import { Title } from '../../Forms/Forms/Title/Tytle';
-import { ProfileForm } from '../../Forms/ProfileForm/ProfileForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'src/store';
-import { setProfileData } from 'src/store/profileSlice';
-
+import { RootState } from '../../../store';
+import { setProfileData } from '../../../store/profileSlice';
+import { Title } from '../../Forms/Forms/Title/Tytle';
+import { isNotDefinedString } from '../../Forms/Forms/validations';
+import { ProfileForm } from '../../Forms/ProfileForm/ProfileForm';
+import { ProfileFormErrors, ProfileFormValues } from '../../Forms/ProfileForm/types';
 
 export type ProfileCompletedFormProps = {
   className?: string;
@@ -22,14 +21,13 @@ export const ProfileScreenForm = memo<ProfileCompletedFormProps>(({ className })
   const { onSubmit, validate, initialValues } = useMemo<
     Pick<FormikConfig<ProfileFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
   >(() => {
-
     return {
       initialValues: {
         name: profile.name || '',
         about: profile.about || '',
       },
       onSubmit: (values, { setErrors }) => {
-        dispatch(setProfileData({id: profile.id, ...values}));
+        dispatch(setProfileData({ id: profile.id, ...values }));
       },
       validate: (values) => {
         const errors = {} as ProfileFormErrors;
@@ -39,7 +37,7 @@ export const ProfileScreenForm = memo<ProfileCompletedFormProps>(({ className })
         return errors;
       },
     };
-  }, [ t ]);
+  }, [t]);
 
   const formManager = useFormik<ProfileFormValues>({
     initialValues,
@@ -49,10 +47,10 @@ export const ProfileScreenForm = memo<ProfileCompletedFormProps>(({ className })
   const { submitForm, setValues } = formManager;
 
   return (
-    <div className='root'>
-      <Title className='title'>{'Профиль пользователя'}</Title>
+    <div className="root">
+      <Title className="title">{'Профиль пользователя'}</Title>
       <ProfileForm formManager={formManager} />
-      <Button type="primary"  onClick={submitForm}>
+      <Button type="primary" onClick={submitForm}>
         {'Сохранить'}
       </Button>
     </div>

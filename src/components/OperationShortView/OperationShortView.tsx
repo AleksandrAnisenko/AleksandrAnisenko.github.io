@@ -1,5 +1,5 @@
 import React from 'react';
-import style from'./OperationShortView.module.scss';
+import style from './OperationShortView.module.scss';
 
 interface OperationShortViewProps {
   sum: number;

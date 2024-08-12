@@ -38,8 +38,7 @@ export const CroppedText = memo(({ rows, opened, children, className }: CroppedT
   }, [reset, rows, children, opened]);
 
   useLayoutEffect(() => {
-    if (!elem.current || !children || end.current < start.current || croppedText === INITIAL_VALUE)
-      return;
+    if (!elem.current || !children || end.current < start.current || croppedText === INITIAL_VALUE) return;
 
     const currHeight = elem.current.getBoundingClientRect().height;
 

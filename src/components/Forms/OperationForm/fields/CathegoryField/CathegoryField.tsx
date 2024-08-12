@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
+import { FormikHandlers } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { getValidates } from '../../../Forms/validations';
 import { FormItem } from '../../../Forms/FormItem/FormItem';
+import { getValidates } from '../../../Forms/validations';
 import { OperationFormProps } from '../../types';
 
 export type CategoryFieldProps = Pick<OperationFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
@@ -21,12 +21,7 @@ export const CategoryField = memo<CategoryFieldProps>(
     const { validateStatus, help } = getValidates(errors, touched);
 
     return (
-      <FormItem
-        title='Категория'
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem title="Категория" required validateStatus={validateStatus} help={help}>
         <Input
           disabled={disabled}
           ref={autoFocusElement}
@@ -36,7 +31,7 @@ export const CategoryField = memo<CategoryFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder='Категория'
+          placeholder="Категория"
         />
       </FormItem>
     );

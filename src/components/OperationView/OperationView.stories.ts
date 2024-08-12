@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react';
-
 import { OperationView } from './OperationView';
 
 const meta: Meta<typeof OperationView> = {

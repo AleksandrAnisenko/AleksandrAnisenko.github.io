@@ -6,7 +6,7 @@ export const resources = {
         showMore: 'Show more',
         switchTheme: 'Switch Theme',
         openModal: 'Open Modal',
-        logOut: 'Log Out'
+        logOut: 'Log Out',
       },
       operation: {
         amount: 'Amount',
@@ -17,7 +17,7 @@ export const resources = {
       operationMock: {
         category: 'Category',
         desc: "Opearation's description",
-        name: "Name of operation"
+        name: 'Name of operation',
       },
       test: {
         testingWord: 'English word',
@@ -31,7 +31,7 @@ export const resources = {
         showMore: 'Показать еще',
         switchTheme: 'Сменить Тему',
         openModal: 'Открыть Модалку',
-        logOut: 'Выйти'
+        logOut: 'Выйти',
       },
       operation: {
         amount: 'Сумма',
@@ -41,8 +41,8 @@ export const resources = {
       },
       operationMock: {
         category: 'Категория',
-        desc: "Описание операции",
-        name: "Имя операции"
+        desc: 'Описание операции',
+        name: 'Имя операции',
       },
       test: {
         testingWord: 'Русское слово',

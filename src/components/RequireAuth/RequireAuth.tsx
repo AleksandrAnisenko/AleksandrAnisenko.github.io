@@ -1,13 +1,12 @@
 import React, { ReactNode, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RootState } from 'src/store';
+import { RootState } from '../../store';
 
 interface RequireAuthProps {
-    redirectTo?: string;
-    children: ReactNode;
-  }
-  
+  redirectTo?: string;
+  children: ReactNode;
+}
 
 export const RequireAuth = ({ redirectTo = '/logIn', children }: RequireAuthProps) => {
   const isAuth = useSelector((state: RootState) => state.user.token);

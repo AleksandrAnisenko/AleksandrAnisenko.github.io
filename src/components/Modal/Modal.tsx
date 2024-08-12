@@ -1,6 +1,6 @@
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
-import style from'./Modal.module.scss';
+import React, { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import style from './Modal.module.scss';
 
 type ModalProps = {
   visible: boolean;
@@ -8,8 +8,7 @@ type ModalProps = {
 };
 
 export const Modal: React.FC<ModalProps> = ({ visible, children }) => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className={style.modal} hidden={!visible}>

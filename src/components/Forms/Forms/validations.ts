@@ -7,36 +7,24 @@ export type ValidateStatus = 'error' | '';
 
 const MIN_LENGTH_PASSWORD = 6;
 
-export const getValidateStatus = (
-  errors: unknown,
-  touched: unknown,
-): ValidateStatus => (errors && touched ? 'error' : '');
+export const getValidateStatus = (errors: unknown, touched: unknown): ValidateStatus =>
+  errors && touched ? 'error' : '';
 
-export const getHelp = (errors: unknown, touched: unknown): Help =>
-  errors && touched ? (errors as Help) : null;
+export const getHelp = (errors: unknown, touched: unknown): Help => (errors && touched ? (errors as Help) : null);
 
 export type Validates = { validateStatus: ValidateStatus; help: Help };
 
-export const getValidates = (
-  errors: unknown,
-  touched: unknown,
-): { validateStatus: ValidateStatus; help: Help } => ({
+export const getValidates = (errors: unknown, touched: unknown): { validateStatus: ValidateStatus; help: Help } => ({
   validateStatus: getValidateStatus(errors, touched),
   help: getHelp(errors, touched),
 });
 
-export const useValidates = (
-  errors: unknown,
-  touched: unknown,
-): { validateStatus: ValidateStatus; help: Help } =>
+export const useValidates = (errors: unknown, touched: unknown): { validateStatus: ValidateStatus; help: Help } =>
   useMemo(() => getValidates(errors, touched), [errors, touched]);
 
 export const getFieldCallbacks = <T = unknown>(
   key: string,
-  {
-    setFieldValue,
-    setFieldTouched,
-  }: Pick<FormikContextType<unknown>, 'setFieldValue' | 'setFieldTouched'>
+  { setFieldValue, setFieldTouched }: Pick<FormikContextType<unknown>, 'setFieldValue' | 'setFieldTouched'>
 ): { onBlur: () => void; onChange: (value: T) => void } => ({
   onBlur: (): void => void setFieldTouched(key, true),
   onChange: (value): unknown => setFieldValue(key, value),
@@ -44,15 +32,9 @@ export const getFieldCallbacks = <T = unknown>(
 
 export const useFieldCallbacks = <T = unknown>(
   key: string,
-  {
-    setFieldValue,
-    setFieldTouched,
-  }: Pick<FormikContextType<unknown>, 'setFieldValue' | 'setFieldTouched'>
+  { setFieldValue, setFieldTouched }: Pick<FormikContextType<unknown>, 'setFieldValue' | 'setFieldTouched'>
 ): { onBlur: () => void; onChange: (value: T) => void } =>
-  useMemo(
-    () => getFieldCallbacks(key, { setFieldValue, setFieldTouched }),
-    [key, setFieldValue, setFieldTouched]
-  );
+  useMemo(() => getFieldCallbacks(key, { setFieldValue, setFieldTouched }), [key, setFieldValue, setFieldTouched]);
 
 export type Iterable<T> = {
   [key: string]: Array<{ [k: string]: T }> | undefined;

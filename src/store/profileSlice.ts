@@ -1,28 +1,29 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProfileData } from 'src/mocks/profileData';
-  
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { ProfileData } from '../mocks/profileData';
+
 interface ProfileSchema {
-    profileData: ProfileData | null;
-  }
+  profileData: ProfileData | null;
+}
 
 const initialState: ProfileSchema = {
-    profileData: null,
-  };
+  profileData: null,
+};
 
 const profileSlice = createSlice({
-    name: 'profile',
-    initialState,
-    reducers: {
-        setProfileData: (state, { payload }: PayloadAction<ProfileData>) => {
-          state.profileData = payload;
-        },
-        resetProfileData: (state) => {
-          state.profileData = null;
-        },
-      },
-    selectors: {
-        selectProfile: (state) => state.profileData,
+  name: 'profile',
+  initialState,
+  reducers: {
+    setProfileData: (state, { payload }: PayloadAction<ProfileData>) => {
+      state.profileData = payload;
     },
+    resetProfileData: (state) => {
+      state.profileData = null;
+    },
+  },
+  selectors: {
+    selectProfile: (state) => state.profileData,
+  },
 });
 
 export const { setProfileData, resetProfileData } = profileSlice.actions;

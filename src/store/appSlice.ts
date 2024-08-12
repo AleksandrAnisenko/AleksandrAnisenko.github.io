@@ -1,25 +1,25 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-  
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
 interface AppSchema {
-    isInited: boolean
+  isInited: boolean;
 }
 
 const initialState: AppSchema = {
-    isInited: false
-}
-
+  isInited: false,
+};
 
 const appSlice = createSlice({
-    name: 'app',
-    initialState,
-    reducers: {
-        initApp: (state, { payload }: PayloadAction<AppSchema>) => {
-            state.isInited = state.isInited ? state.isInited : !state.isInited;
-        },
-      },
-    selectors: {
-        selectApp: (state) => state.isInited,
+  name: 'app',
+  initialState,
+  reducers: {
+    initApp: (state, { payload }: PayloadAction<AppSchema>) => {
+      state.isInited = state.isInited ? state.isInited : !state.isInited;
     },
+  },
+  selectors: {
+    selectApp: (state) => state.isInited,
+  },
 });
 
 export const { initApp } = appSlice.actions;

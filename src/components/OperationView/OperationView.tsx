@@ -1,15 +1,14 @@
 import React from 'react';
-import style from'./OperationView.module.scss';
-import { TOperation } from '../../Types';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { TOperation } from '../../Types';
+import { Button } from '../Button/Button';
+import style from './OperationView.module.scss';
 
 export const OperationView: React.FC<TOperation> = ({ id, amount, category, name, desc, createdAt }) => {
-
   const { t } = useTranslation();
   const navigate = useNavigate();
-  
+
   const role = 'admin';
   const handleEditOperation = () => navigate(`/updateOperation/${id}`, { replace: false });
 
@@ -17,7 +16,7 @@ export const OperationView: React.FC<TOperation> = ({ id, amount, category, name
     <div className={style.operation__view}>
       <div className={style.operation__view_header}>
         <h2>{name}</h2>
-        {role === 'admin' && <Button onClick={handleEditOperation} >{t`buttons.edit`}</Button>}
+        {role === 'admin' && <Button onClick={handleEditOperation}>{t`buttons.edit`}</Button>}
       </div>
       <div className={style.operation__view_details}>
         <div className={style.operation__view_sum}>

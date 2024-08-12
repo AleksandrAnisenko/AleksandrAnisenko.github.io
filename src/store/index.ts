@@ -1,19 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { operationsReducer } from './operationsSlice';
-import { userReducer } from './userSlice';
-import { profileReducer } from './profileSlice';
+import { rtkApi } from '../api/rtqApi';
 import { appReducer } from './appSlice';
-import { rtkApi } from 'src/api/rtqApi';
+import { operationsReducer } from './operationsSlice';
+import { profileReducer } from './profileSlice';
+import { userReducer } from './userSlice';
 export const store = configureStore({
   reducer: {
     app: appReducer,
     user: userReducer,
     operations: operationsReducer,
     profile: profileReducer,
-    [rtkApi.reducerPath]: rtkApi.reducer, 
+    [rtkApi.reducerPath]: rtkApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => 
-    getDefaultMiddleware().concat(rtkApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),
 });
 
 export type AppStore = typeof store;
