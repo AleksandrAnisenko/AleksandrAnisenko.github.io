@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { AuthFormValues } from 'src/components/Forms/AuthForm/AuthForm';
-import { getAuthorizationToken } from 'src/helpers';
-import { API_URL, COMMAND_ID } from 'src/shared/consts/api';
-import { ErrorResponse } from 'src/shared/utils/ErrorHandler';
+import { AuthFormValues } from '../components/Forms/AuthForm/types';
+import { getAuthorizationToken } from '../helpers';
+import { API_URL, COMMAND_ID } from '../shared/consts/api';
+import { ErrorResponse } from '../shared/utils/ErrorHandler';
 
 export type AuthResult = {
   token: string;

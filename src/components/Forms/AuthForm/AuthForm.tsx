@@ -1,16 +1,11 @@
 import React, { memo, MutableRefObject } from 'react';
 import { TextField } from './fields/TextField/TextField';
-import { Form } from 'src/shared/form/Form';
+import { Form } from '../../../shared/form/Form';
 import { FormikContextType } from 'formik';
 import { getValidates } from '../Forms/validations';
-
 import { Text } from './fields/TextField/Text';
-import { Button } from 'src/components/Button/Button';
-
-export type AuthFormValues = {
-  email: string;
-  password: string;
-};
+import { Button } from '../../Button/Button';
+import { AuthFormValues } from './types';
 
 export interface AuthFormProps extends FormProps<AuthFormValues> {
   title: string;
