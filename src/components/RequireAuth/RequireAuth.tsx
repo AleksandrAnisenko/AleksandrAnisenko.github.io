@@ -9,10 +9,9 @@ interface RequireAuthProps {
   }
   
 
-export const RequireAuth = ({ redirectTo = '/login', children }: RequireAuthProps) => {
+export const RequireAuth = ({ redirectTo = '/logIn', children }: RequireAuthProps) => {
   const isAuth = useSelector((state: RootState) => state.user.token);
   const isAppInited = useSelector((state: RootState) => state.app.isInited);
-  console.log(isAppInited)
   const location = useLocation();
   const navigateTo = useMemo(() => {
     if (!isAuth) return redirectTo;
