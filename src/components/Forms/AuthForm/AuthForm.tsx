@@ -1,10 +1,9 @@
 import React, { memo, MutableRefObject } from 'react';
-import { TextField } from './fields/TextField/TextField';
+import { TextField } from '../TextField/TextField';
 import { Form } from 'src/shared/form/Form';
 import { FormikContextType } from 'formik';
 import { getValidates } from '../Forms/validations';
-
-import { Text } from './fields/TextField/Text';
+import { Text } from '../TextField/Text';
 import { Button } from 'src/components/Button/Button';
 
 export type AuthFormValues = {
@@ -69,7 +68,7 @@ export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) 
           {status}
         </Text>
       )}
-      <Button children={title} onClick={submitForm} />
+      <Button label={title} onClick={submitForm} />
     </Form>
   );
 });

@@ -23,3 +23,6 @@ export const errorHandler = <Response = ErrorResponse>(
   const message = getErrorMessage(err, defaultMassage);
   return onError(message);
 };
+
+export const transformErrorResponse = (response: { data: ErrorResponse; status: number }) =>
+  response.data.errors[0].message || response.status;

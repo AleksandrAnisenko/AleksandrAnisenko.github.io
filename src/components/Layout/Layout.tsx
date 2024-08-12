@@ -4,11 +4,11 @@ import { Header } from '../Header/Header';
 import { OperationsList } from '../OperationsList/OperationsList';
 import { Route, Routes } from 'react-router-dom';
 import { CreateOperationForm } from '../Screens/OperationScreen/Create/CreateOperationForm';
-import { ProfileScreenForm } from '../Screens/ProfileScreen/ProfileScreenForm';
 import { useDispatch } from 'react-redux';
 import { setProfileData } from 'src/store/profileSlice';
 import { profile } from 'src/mocks/profileData';
 import { UpdateOperationForm } from '../Screens/OperationScreen/Update/UpdateOperationForm';
+import { ProfileScreenForm } from '../Screens/ProfileScreen/ProfileScreenForm';
 
 export const Layout:FC = () => {
 

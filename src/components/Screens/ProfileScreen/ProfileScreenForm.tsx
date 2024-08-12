@@ -1,61 +1,66 @@
-import React, { memo, useMemo } from 'react';
-import { FormikConfig, useFormik } from 'formik';
-import { Button } from 'antd';
+import React, { ChangeEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProfileFormErrors, ProfileFormValues } from '../../Forms/ProfileForm/types';
-import { isNotDefinedString } from '../../Forms/Forms/validations';
-import { Title } from '../../Forms/Forms/Title/Tytle';
-import { ProfileForm } from '../../Forms/ProfileForm/ProfileForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'src/store';
-import { setProfileData } from 'src/store/profileSlice';
+import { UpdateProfileBody } from './profileTypes';
+import { FormProps } from 'src/components/Forms/Forms/types';
+import { useProfileForm } from './Hooks/useProfileForm';
+import { getValidates } from 'src/components/Forms/Forms/validations';
+import { Form } from 'src/shared/form/Form';
+import { TextField } from 'src/components/Forms/TextField/TextField';
+import { Button } from 'src/components/Button/Button';
+import { Text } from 'src/components/Forms/TextField/Text';
 
 
-export type ProfileCompletedFormProps = {
-  className?: string;
-};
+type ProfileScreenForm = FormProps<UpdateProfileBody>;
 
-export const ProfileScreenForm = memo<ProfileCompletedFormProps>(({ className }) => {
+export const ProfileScreenForm = memo(({ className }: ProfileScreenForm) => {
+  const {
+    values,
+    submitForm,
+    touched,
+    errors,
+    handleBlur,
+    handleSubmit,
+    handleChange,
+    status,
+    setStatus,
+    isLoading,
+    isSaving,
+  } = useProfileForm();
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const profile = useSelector((state: RootState) => state.profile.profileData);
-  const { onSubmit, validate, initialValues } = useMemo<
-    Pick<FormikConfig<ProfileFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
-  >(() => {
 
-    return {
-      initialValues: {
-        name: profile.name || '',
-        about: profile.about || '',
-      },
-      onSubmit: (values, { setErrors }) => {
-        dispatch(setProfileData({id: profile.id, ...values}));
-      },
-      validate: (values) => {
-        const errors = {} as ProfileFormErrors;
-        if (isNotDefinedString(values.name)) {
-          errors.name = 'Обязательно для заполнения';
-        }
-        return errors;
-      },
-    };
-  }, [ t ]);
+  const { help } = getValidates(errors.name, touched.name);
 
-  const formManager = useFormik<ProfileFormValues>({
-    initialValues,
-    onSubmit,
-    validate,
-  });
-  const { submitForm, setValues } = formManager;
+  const handleInputChange = useCallback(
+    (e: ChangeEvent) => {
+      setStatus('');
+      handleChange(e);
+    },
+    [handleChange, setStatus]
+  );
 
   return (
-    <div className='root'>
-      <Title className='title'>{'Профиль пользователя'}</Title>
-      <ProfileForm formManager={formManager} />
-      <Button type="primary"  onClick={submitForm}>
-        {'Сохранить'}
-      </Button>
-    </div>
+    <Form className={className} onSubmit={handleSubmit}>
+      <TextField
+        value={values.name}
+        name="name"
+        onChange={handleInputChange}
+        onBlur={handleBlur}
+        label={t('Пользователь')}
+        required
+        errorMessage={help}
+      />
+      {status && (
+        <Text color="error" size="s">
+          {status}
+        </Text>
+      )}
+      <Button
+        label={'Сохранить изменения'}
+        onClick={submitForm}
+        full={false}
+        disabled={isSaving || isLoading}
+      />
+    </Form>
   );
 });
 

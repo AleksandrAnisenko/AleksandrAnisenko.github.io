@@ -1,6 +1,5 @@
 import React, { memo, useEffect, useMemo } from 'react';
 import { FormikConfig } from 'formik';
-import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { AuthForm } from '../../../Forms/AuthForm/AuthForm';
 import { AuthFormErrors, AuthFormValues } from '../../../Forms/AuthForm/types'
@@ -10,8 +9,7 @@ import s from './SignInForm.module.scss';
 import { setUser } from 'src/store/userSlice';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useAuthWithQuery } from 'src/components/useAuthWithQuery';
-import { useAuth } from 'src/components/useAuth';
+import { useAuthWithQuery } from 'src/components/Screens/AuthScreen/Hooks/useAuthWithQuery';
 
 
 export const SingInForm = memo(() => {
@@ -54,8 +52,7 @@ export const SingInForm = memo(() => {
       };
     }, [ t ]);
 
-    // const formManager = useAuthWithQuery('signIn');
-    const formManager = useAuth('signIn');
+    const formManager = useAuthWithQuery('signIn');
 
     const { setErrors, initialErrors, setStatus, initialStatus, submitForm } = formManager;
 

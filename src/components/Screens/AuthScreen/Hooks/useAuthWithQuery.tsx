@@ -4,9 +4,9 @@ import { type FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { setUser } from 'src/store/userSlice';
-import { useSignInRTKMutation, useSignUpRTKMutation } from 'src/api/rtqApi';
-import { AuthFormValues } from './Forms/AuthForm/types';
+import { AuthFormValues } from '../../../Forms/AuthForm/types';
 import { useNavigate } from 'react-router-dom';
+import { useSignInRTKMutation, useSignUpRTKMutation } from '../api/authApi';
 
 type UserAuthMode = 'signIn' | 'signUp'
 

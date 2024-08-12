@@ -1,6 +1,5 @@
-import React, { memo, useCallback, useEffect, useMemo } from 'react';
-import { FormikConfig, useFormik } from 'formik';
-import { Button } from 'antd';
+import React, { memo, useEffect, useMemo } from 'react';
+import { FormikConfig } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { AuthForm } from '../../../Forms/AuthForm/AuthForm';
 import { AuthFormErrors, AuthFormValues } from '../../../Forms/AuthForm/types'
@@ -8,10 +7,9 @@ import { isNotDefinedString } from '../../../Forms/Forms/validations';
 import { Title } from '../../../Forms/Forms/Title/Tytle';
 import { Link } from 'react-router-dom';
 import s from './SignUpForm.module.scss';
-import { useAuthWithQuery } from 'src/components/useAuthWithQuery';
+import { useAuthWithQuery } from 'src/components/Screens/AuthScreen/Hooks/useAuthWithQuery';
 import { useDispatch } from 'react-redux';
 import { setUser } from 'src/store/userSlice';
-import { useAuth } from 'src/components/useAuth';
 
 export const SingUpForm = memo(() => {
   const { t } = useTranslation();
@@ -53,8 +51,7 @@ export const SingUpForm = memo(() => {
       };
     }, [ t ]);
 
-    // const formManager = useAuthWithQuery('signUp');
-    const formManager = useAuth('signUp');
+    const formManager = useAuthWithQuery('signUp');
 
     const { setErrors, initialErrors, setStatus, initialStatus, submitForm } = formManager;
 
