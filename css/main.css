@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #48494b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 0 50px 0 50px;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.Button-module_button-kWIGS{text-align:center;margin:10px;cursor:pointer;outline:none;padding:5px 10px;border-radius:3px;background-color:unset}.Button-module_button-kWIGS:hover{background-color:#e6e1e1}
+.LangSwitcher-module_root-m1fHv{border:0;padding:4px;background:none;outline:none;cursor:pointer}
+.Logo-module_logo-wdGtr{width:40px;height:40px;display:flex;justify-content:center;align-items:center;background-color:#eee;border-radius:8px}
+a{text-decoration:none}.ThemeSwitcher-module_root-vl1Vo{border:0;padding:4px;background:none;outline:none;cursor:pointer}
+a{text-decoration:none}.Header-module_root-h0YXN{border-bottom:1px solid #93c5fd;position:sticky;padding:19px;display:flex;justify-content:space-between;flex-direction:row;background:#fff}html.light .Header-module_root-h0YXN{background-color:#fff}html.dark .Header-module_root-h0YXN{background-color:#23272f}html.light .Header-module_root-h0YXN{box-shadow:0 3px 6px rgba(0, 0, 0, 0.05)}html.dark .Header-module_root-h0YXN{box-shadow:0 3px 6px rgba(255, 255, 255, 0.05)}html.light .Header-module_root-h0YXN{color:#404757}html.dark .Header-module_root-h0YXN{color:#f6f7f9}html.light .Header-module_switcher-_EwyB{color:#404757}html.dark .Header-module_switcher-_EwyB{color:#f6f7f9}
+.OperationView-module_opeation__view-rnqB0{width:500px;border:1px solid #8f8a8a;padding:15px;border-radius:5px;background-color:#f9f9f9;box-shadow:0 2px 4px rgba(0,0,0,.1)}.OperationView-module_opeation__view_header-XjBij{display:flex;justify-content:space-between;align-items:center}.OperationView-module_opeation__view_header-XjBij h2{margin:0}.OperationView-module_opeation__view_header-XjBij button{background-color:#007bff;color:#fff;border:none;padding:5px 10px;border-radius:3px;cursor:not-allowed}.OperationView-module_opeation__view_details-nxtAw{font-size:16px}.OperationView-module_opeation__view_sum-ysExY,.OperationView-module_opeation__view_category-I0jE1,.OperationView-module_opeation__view_description-IlbbP,.OperationView-module_opeation__view_date-K1ryp{margin-bottom:5px}
+.OperationsList-module_list-RhS_B{display:flex;justify-content:center;align-items:center;flex-direction:column}
+.Tytle-module_root-ybNQ9{font-weight:600;line-height:1.5}.Tytle-module_required-chYrC:after{display:inline-block;padding-left:4px;content:"*";font-size:12px}
+.Modal-module_modal-YA01D{position:fixed;z-index:100;top:0;left:0;right:0;bottom:0}.Modal-module_modal__backdrop-shx6N{position:absolute;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.23)}.Modal-module_modal__card-rsvyr{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:400px;min-height:450px;padding:15px;border-radius:8px;background-color:#fff}.Modal-module_modal__card__close-Vq6t_{cursor:pointer;width:25px;height:25px;display:flex;justify-content:center;position:relative;margin-left:auto}.Modal-module_modal__card__close-Vq6t_:before,.Modal-module_modal__card__close-Vq6t_:after{position:absolute;content:"";height:25px;width:2px;background-color:#333}.Modal-module_modal__card__close-Vq6t_:before{transform:rotate(45deg)}.Modal-module_modal__card__close-Vq6t_:after{transform:rotate(-45deg)}
+a{text-decoration:none}.Layout-module_root-SZwG5{position:relative;height:100vh;width:100%}html.light .Layout-module_root-SZwG5{background-color:#fff}html.dark .Layout-module_root-SZwG5{background-color:#23272f}html.light .Layout-module_root-SZwG5{box-shadow:0 3px 6px rgba(0, 0, 0, 0.05)}html.dark .Layout-module_root-SZwG5{box-shadow:0 3px 6px rgba(255, 255, 255, 0.05)}html.light .Layout-module_root-SZwG5{color:#404757}html.dark .Layout-module_root-SZwG5{color:#f6f7f9}.Layout-module_content-bzpXB{display:flex;justify-content:center}
+.Form-module_form-XjNeO{display:flex;flex-direction:column;gap:16px}
+.Text-module_text-ac4z0{line-height:1.2}.Text-module_size_s-H0Rqf{font-size:10px}.Text-module_color_primary-f0ngm{color:var(--color-main)}.Text-module_color_error-CIKcH{color:var(--color--danger)}
+.TextField-module_fieldWrapper-LEHrR{position:relative;background:rgba(0,0,0,0);border-bottom:1px solid #000}.TextField-module_fieldWrapper_error-cdvEO{border-color:#000}.TextField-module_label-JsI6l,.TextField-module_field-MiUkE{font-size:15px;line-height:20px;letter-spacing:0;color:inherit;background:none;cursor:text}.TextField-module_label-JsI6l{position:absolute;width:100%;top:18px;left:0;white-space:nowrap;color:var(--color-gray-2);transition:all .05s linear}.TextField-module_label_top-I1EU4{top:0;font-size:10px;color:inherit}.TextField-module_field-MiUkE{width:100%;margin:0;padding:18px 0 8px;border:0;box-sizing:border-box;outline:0}.TextField-module_field-MiUkE::placeholder{color:var(--color-gray-2);transition:opacity .05s ease-in-out}.TextField-module_field-MiUkE:focus::placeholder{opacity:0}.TextField-module_error-BMy1B{margin-top:4px}
+.SignInForm-module_container-Vx6Zz{display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:25vh}
+.SignUpForm-module_container-8B_Kf{display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:25vh}
+
+/*# sourceMappingURL=main.css.map*/
