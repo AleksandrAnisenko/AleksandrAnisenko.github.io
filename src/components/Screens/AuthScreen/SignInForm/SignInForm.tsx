@@ -3,7 +3,7 @@ import { FormikConfig } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../../useAuth';
+import { useAuthWithQuery } from '../../../Screens/AuthScreen/Hooks/useAuthWithQuery';
 import { setUser } from '../../../../store/userSlice';
 import { AuthForm } from '../../../Forms/AuthForm/AuthForm';
 import { AuthFormErrors, AuthFormValues } from '../../../Forms/AuthForm/types';
@@ -47,8 +47,7 @@ export const SingInForm = memo(() => {
     };
   }, [t]);
 
-  // const formManager = useAuthWithQuery('signIn');
-  const formManager = useAuth('signIn');
+  const formManager = useAuthWithQuery('signIn');
 
   const { setErrors, initialErrors, setStatus, initialStatus, submitForm } = formManager;
 

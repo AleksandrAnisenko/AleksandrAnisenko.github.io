@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, ReactNode, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';

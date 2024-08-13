@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { removeUser } from '../../store/userSlice';
 import { Button } from '../Button/Button';
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher';
@@ -12,7 +12,6 @@ import style from './Header.module.scss';
 export const Header: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const role = 'admin';
 
   const logout = () => {
     dispatch(removeUser());
@@ -21,23 +20,21 @@ export const Header: React.FC = () => {
     <div className={style.root}>
       <Logo />
       <div>
-        <Button>
-          <Link to="profile">Profile</Link>
-        </Button>
-        <Button>
-          <Link to="operations">Operations</Link>
-        </Button>
-        {role === 'admin' && (
-          <Button>
-            <Link to="createOperation">New Operation</Link>
-          </Button>
-        )}
+        <div className={style.link}>
+          <NavLink to="profile">Профиль</NavLink>
+        </div>
+        <div className={style.link}>
+          <NavLink to="operations">Операции</NavLink>
+        </div>
+        <div className={style.link}>
+          <NavLink to="categories">Категории</NavLink>
+        </div>
       </div>
       <div>
-        <Button onClick={logout}>{t`buttons.logOut`}</Button>
         <ThemeSwitcher className={style.switcher} />
         <LangSwitcher className={style.switcher} />
       </div>
+      <Button label={t`buttons.logOut`} onClick={logout}></Button>
     </div>
   );
 };

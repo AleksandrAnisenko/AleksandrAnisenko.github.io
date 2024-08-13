@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { Form } from 'antd';
 import { Title } from '../Title/Tytle';
 
-export type Help = null | React.ReactNode;
+export type Help = null | ReactNode;
 export type ValidateStatus = 'error' | '';
 
 export type FormItemProps = {

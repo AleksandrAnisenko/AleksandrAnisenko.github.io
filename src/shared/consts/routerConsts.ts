@@ -1,0 +1,10 @@
+export const getRouteMain = () => '/';
+export const getRouteProfile = () => '/profile';
+export const getRouteOpeartions = () => `/operations`;
+export const getRouteCreateOpeartion = () => '/operations/createOperation';
+export const getRouteUpdateOpeartion = (id: string) => `/operations/updateOperation/${id}`;
+export const getRouteCategories = () => `/categories`;
+export const getRouteCreateCategory = () => '/categories/createCategory';
+export const getRouteUpdateCategory = (id: string) => `/categories/updateCategory/${id}`;
+export const getRouteLogin = () => '/login';
+export const getRouteNotFound = () => '*';

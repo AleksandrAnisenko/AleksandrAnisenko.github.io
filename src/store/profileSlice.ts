@@ -1,6 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { ProfileData } from '../mocks/profileData';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export interface ProfileData {
+  id: string;
+  name?: string;
+}
 
 interface ProfileSchema {
   profileData: ProfileData | null;

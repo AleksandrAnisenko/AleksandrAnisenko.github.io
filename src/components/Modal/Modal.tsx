@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { Dispatch, ReactNode, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './Modal.module.scss';
 

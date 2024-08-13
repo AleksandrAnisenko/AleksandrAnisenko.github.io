@@ -1,0 +1,19 @@
+.text {
+    line-height: 1.2;
+  }
+  
+  .size {
+    &_s {
+      font-size: 10px;
+    }
+  }
+  
+  .color {
+    &_primary {
+      color: var(--color-main);
+    }
+  
+    &_error {
+      color: tomato;
+    }
+  }

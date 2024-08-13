@@ -1,11 +1,15 @@
 import React, { memo, MutableRefObject } from 'react';
 import { FormikContextType } from 'formik';
-import { Form } from '../../../shared/form/Form';
 import { Button } from '../../Button/Button';
+import { Form } from '../../../shared/form/Form';
 import { getValidates } from '../Forms/validations';
-import { Text } from './fields/TextField/Text';
-import { TextField } from './fields/TextField/TextField';
-import { AuthFormValues } from './types';
+import { Text } from '../TextField/Text';
+import { TextField } from '../TextField/TextField';
+
+export type AuthFormValues = {
+  email: string;
+  password: string;
+};
 
 export interface AuthFormProps extends FormProps<AuthFormValues> {
   title: string;
@@ -20,6 +24,8 @@ interface FormProps<Values = unknown> {
 }
 
 export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) => {
+  if (!formManager) return null;
+
   const { submitForm, touched, errors, handleBlur, handleSubmit, handleChange, values, status } = formManager;
 
   const { help: helpEmail } = getValidates(errors.email, touched.email);
@@ -53,7 +59,7 @@ export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) 
           {status}
         </Text>
       )}
-      <Button onClick={submitForm}>{title}</Button>
+      <Button label={title} onClick={submitForm} />
     </Form>
   );
 });

@@ -1,28 +1,37 @@
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { profile } from '../../mocks/profileData';
-import { setProfileData } from '../../store/profileSlice';
+import {
+  getRouteCategories,
+  getRouteCreateCategory,
+  getRouteCreateOpeartion,
+  getRouteOpeartions,
+  getRouteProfile,
+  getRouteUpdateCategory,
+  getRouteUpdateOpeartion,
+} from '../../shared/consts/routerConsts';
 import { Header } from '../Header/Header';
-import { OperationsList } from '../OperationsList/OperationsList';
+import { CategoriesList } from '../Screens/CategoryScreen/CategoriesList';
+import { CreateCategoryForm } from '../Screens/CategoryScreen/Create/CreateCategoryForm';
+import { UpdateCategoryForm } from '../Screens/CategoryScreen/UpdateCategoryForm/UpdateCategoryForm';
 import { CreateOperationForm } from '../Screens/OperationScreen/Create/CreateOperationForm';
+import { OperationsInfinityList } from '../Screens/OperationScreen/OperationsList.tsx/OperationsinfinityList';
 import { UpdateOperationForm } from '../Screens/OperationScreen/Update/UpdateOperationForm';
 import { ProfileScreenForm } from '../Screens/ProfileScreen/ProfileScreenForm';
 import style from './Layout.module.scss';
 
 export const Layout: FC = () => {
-  const dispatch = useDispatch();
-  dispatch(setProfileData(profile));
-
   return (
     <div className={style.root}>
       <Header />
       <div className={style.content}>
         <Routes>
-          <Route path="/profile" element={<ProfileScreenForm />} />
-          <Route path="/operations" element={<OperationsList />} />
-          <Route path="/createOperation" element={<CreateOperationForm />} />
-          <Route path="/updateOperation/:id" element={<UpdateOperationForm />} />
+          <Route path={getRouteProfile()} element={<ProfileScreenForm />} />
+          <Route path={getRouteOpeartions()} element={<OperationsInfinityList />} />
+          <Route path={getRouteCategories()} element={<CategoriesList />} />
+          <Route path={getRouteCreateCategory()} element={<CreateCategoryForm />} />
+          <Route path={getRouteUpdateCategory(':id')} element={<UpdateCategoryForm />} />
+          <Route path={getRouteCreateOpeartion()} element={<CreateOperationForm />} />
+          <Route path={getRouteUpdateOpeartion(':id')} element={<UpdateOperationForm />} />
         </Routes>
       </div>
     </div>
