@@ -130,8 +130,6 @@ const getCategory = (): TCategory => {
  * Принимает дату создания (строка)
  * */
 
-type TType = 'Cost' | 'Profit';
-
 export const createRandomOperation = (): TOperation => {
   const selectedCategory: string = 'Категория' + ` ${getRandomInt(1, 10)}`;
   return {

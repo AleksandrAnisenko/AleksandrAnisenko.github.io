@@ -1,4 +1,4 @@
-import React, { createContext, FC, useCallback, useContext, useState, useMemo, useEffect } from 'react';
+import React, { createContext, FC, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Theme } from './types';
 
 export type ThemeProviderProps = {
