@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Locale } from '../../localization/settings';
-import style from './LangSwitcher.module.scss';
 import { LangSwitchTest } from '../LangSwitchTest/LangSwitchTest';
+import style from './LangSwitcher.module.scss';
 
 export type ThemeSwitcherProps = {
   className?: string;
@@ -15,9 +15,9 @@ export const LangSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
   return (
     <>
       <button type="button" className={cn(style.root, className)} onClick={() => i18n.changeLanguage(lang)}>
-      {lang}
+        {lang}
       </button>
-      <LangSwitchTest/>
+      <LangSwitchTest />
     </>
   );
 };

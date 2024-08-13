@@ -1,1 +1,1 @@
-export { CroppedText } from './CroppedText'
+export { CroppedText } from './CroppedText';

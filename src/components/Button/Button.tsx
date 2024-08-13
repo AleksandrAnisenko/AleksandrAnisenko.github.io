@@ -61,7 +61,6 @@ export const Button = memo(
       );
 
       const buttonInner = (() => {
-
         return (
           <>
             <span>{label}</span>

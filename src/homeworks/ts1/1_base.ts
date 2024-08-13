@@ -18,7 +18,7 @@ export const round = (value: number, accuracy = 2): number => {
 const transformRegexp =
   /(matrix\(-?\d+(\.\d+)?, -?\d+(\.\d+)?, -?\d+(\.\d+)?, -?\d+(\.\d+)?, )(-?\d+(\.\d+)?), (-?\d+(\.\d+)?)\)/;
 
-export const getTransformFromCss = (transformCssString: string): {x: number, y: number} => {
+export const getTransformFromCss = (transformCssString: string): { x: number; y: number } => {
   const data = transformCssString.match(transformRegexp);
   if (!data) return { x: 0, y: 0 };
   return {
@@ -27,7 +27,7 @@ export const getTransformFromCss = (transformCssString: string): {x: number, y: 
   };
 };
 
-type TRGBColor= [number, number, number];
+type TRGBColor = [number, number, number];
 type THEXColor = `#${string}`;
 
 export const getColorContrastValue = ([red, green, blue]: TRGBColor): number =>
@@ -57,14 +57,16 @@ export const hex2rgb = (color: THEXColor): TRGBColor => {
   return [red, green, blue];
 };
 
-export const getNumberedArray = (arr: number[]): {value: number, number: number}[] => arr.map((value, number) => ({ value, number }));
-export const toStringArray = (arr: {value: number, number: number}[]): string[] => arr.map(({ value, number }) => `${value}_${number}`);
+export const getNumberedArray = (arr: number[]): { value: number; number: number }[] =>
+  arr.map((value, number) => ({ value, number }));
+export const toStringArray = (arr: { value: number; number: number }[]): string[] =>
+  arr.map(({ value, number }) => `${value}_${number}`);
 
 interface ICustomer {
-  id: number,
-  name: string,
-  age: number,
-  isSubscribed: boolean
+  id: number;
+  name: string;
+  age: number;
+  isSubscribed: boolean;
 }
 
 type selectedCustomer = { [key: number]: Omit<ICustomer, 'id'> };

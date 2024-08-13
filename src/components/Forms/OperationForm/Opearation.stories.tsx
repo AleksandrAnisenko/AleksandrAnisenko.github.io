@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 import { Modal } from '../../Modal/Modal';
-import { CreateOperationForm } from '../../Screens/OperationScreen/Create/CreateOperationForm'
+import { CreateOperationForm } from '../../Screens/OperationScreen/Create/CreateOperationForm';
 import { UpdateOperationForm } from '../../Screens/OperationScreen/Update/UpdateOperationForm';
 
 const meta: Meta<typeof Modal> = {

@@ -5,8 +5,8 @@
  * В целом сделайте так, как вам будет удобно.
  * */
 
-import { formatDate } from "src/helpers";
-import { TOperation } from "src/Types";
+import { formatDate } from '../../helpers';
+import { TOperation } from '../../Types';
 
 /**
  * Нужно создать тип Category, он будет использоваться ниже.
@@ -47,80 +47,84 @@ import { TOperation } from "src/Types";
  * */
 
 type TCategory = {
-    id: string,
-    name: string,
-    photo?: string
-}
+  id: string;
+  name: string;
+  photo?: string;
+};
 
 type TProduct = {
-    id: string,
-    name: string,
-    photo: string,
-    desc?: string,
-    createdAt: string,
-    oldPrice?: number,
-    price: number,
-    category: TCategory
-}
+  id: string;
+  name: string;
+  photo: string;
+  desc?: string;
+  createdAt: string;
+  oldPrice?: number;
+  price: number;
+  category: TCategory;
+};
 
 type TCost = {
-    id: string,
-    name: string,
-    desc?: string,
-    createdAt: string,
-    amount: number,
-    category: TCategory,
-    type: 'Cost'
-}
+  id: string;
+  name: string;
+  desc?: string;
+  createdAt: string;
+  amount: number;
+  category: TCategory;
+  type: 'Cost';
+};
 
 type TProfit = {
-    id: string,
-    name: string,
-    desc?: string,
-    createdAt: string,
-    amount: number,
-    category: TCategory,
-    type: 'Profit'
-}
+  id: string;
+  name: string;
+  desc?: string;
+  createdAt: string;
+  amount: number;
+  category: TCategory;
+  type: 'Profit';
+};
 
 type TArrElem = string | TCategory;
-
 
 /**
  * Создает случайный продукт (Product).
  * Принимает дату создания (строка)
  * */
 export const createRandomProduct = (createdAt: string): TProduct => {
-    const selectedCategory: TCategory = getCategory();
-    const selectedProductName: string = generateProductName(selectedCategory.name);
-    const price: number = getRandomInt();
-    return {
-      id: getDate(),
-      name: selectedProductName,
-      photo: `/img/img${selectedProductName}.jpg`,
-      desc: `description ${selectedProductName}`,
-      createdAt: createdAt,
-      oldPrice: price + 10,
-      price: price,
-      category: selectedCategory
-    }
+  const selectedCategory: TCategory = getCategory();
+  const selectedProductName: string = generateProductName(selectedCategory.name);
+  const price: number = getRandomInt();
+  return {
+    id: getDate(),
+    name: selectedProductName,
+    photo: `/img/img${selectedProductName}.jpg`,
+    desc: `description ${selectedProductName}`,
+    createdAt: createdAt,
+    oldPrice: price + 10,
+    price: price,
+    category: selectedCategory,
   };
+};
 
-  const categories = [{id: '1', name: 'Еда'}, {id: '2', name: 'Напитки'}];
-  const drinkProductNames = ['сок', 'кофе', 'чай', 'газировка', 'вода'];
-  const foodProductNames = ['стейк', 'паста', 'бутерброд', 'суп', 'салат'];
+const categories = [
+  { id: '1', name: 'Еда' },
+  { id: '2', name: 'Напитки' },
+];
+const drinkProductNames = ['сок', 'кофе', 'чай', 'газировка', 'вода'];
+const foodProductNames = ['стейк', 'паста', 'бутерброд', 'суп', 'салат'];
 
-  const getRandomArrIndex = (arr: TArrElem[]): number => Math.floor(Math.random() * arr.length);
+const getRandomArrIndex = (arr: TArrElem[]): number => Math.floor(Math.random() * arr.length);
 
-  const getRandomElem = (arr: TArrElem[]): TArrElem => {
-    return arr[getRandomArrIndex(arr)];
-  }
+const getRandomElem = (arr: TArrElem[]): TArrElem => {
+  return arr[getRandomArrIndex(arr)];
+};
 
-  const generateProductName = (category: string): string => { return (category === 'Еда' ? getRandomElem(foodProductNames) : getRandomElem(drinkProductNames)) as string}
+const generateProductName = (category: string): string => {
+  return (category === 'Еда' ? getRandomElem(foodProductNames) : getRandomElem(drinkProductNames)) as string;
+};
 
-  const getCategory = (): TCategory => {
-    return getRandomElem(categories) as TCategory;
-  }
+const getCategory = (): TCategory => {
+  return getRandomElem(categories) as TCategory;
+};
 /**
  * Создает случайную операцию (Operation).
  * Принимает дату создания (строка)
@@ -129,20 +133,20 @@ export const createRandomProduct = (createdAt: string): TProduct => {
 type TType = 'Cost' | 'Profit';
 
 export const createRandomOperation = (): TOperation => {
-  const selectedCategory: string = 'Категория'+` ${getRandomInt(1, 10)}` ;
+  const selectedCategory: string = 'Категория' + ` ${getRandomInt(1, 10)}`;
   return {
-      id: getTime(),
-      amount: getRandomInt(),
-      category: selectedCategory,
-      name: 'Имя операции',
-      desc: 'Описание операции',
-      createdAt: getDate(),
-    }
+    id: getTime(),
+    amount: getRandomInt(),
+    category: selectedCategory,
+    name: 'Имя операции',
+    desc: 'Описание операции',
+    createdAt: getDate(),
+  };
 };
 
 const getRandomInt = (max = 1000, min = 1): number => {
   return Math.floor(Math.random() * (max - min) + min);
-}
+};
 
 export const getTime = (): string => new Date().getTime().toString();
 export const getDate = (): string => formatDate().toString();

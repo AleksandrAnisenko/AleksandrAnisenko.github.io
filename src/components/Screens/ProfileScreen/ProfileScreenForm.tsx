@@ -1,14 +1,12 @@
 import React, { ChangeEvent, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { UpdateProfileBody } from './profileTypes';
-import { FormProps } from 'src/components/Forms/Forms/types';
+import { Button } from '../../Button/Button';
+import { FormProps } from '../../Forms/Forms/types';
+import { getValidates } from '../../Forms/Forms/validations';
+import { Text } from '../../Forms/TextField/Text';
+import { TextField } from '../../Forms/TextField/TextField';
+import { Form } from '../../../shared/form/Form';
 import { useProfileForm } from './Hooks/useProfileForm';
-import { getValidates } from 'src/components/Forms/Forms/validations';
-import { Form } from 'src/shared/form/Form';
-import { TextField } from 'src/components/Forms/TextField/TextField';
-import { Button } from 'src/components/Button/Button';
-import { Text } from 'src/components/Forms/TextField/Text';
-
+import { UpdateProfileBody } from './profileTypes';
 
 type ProfileScreenForm = FormProps<UpdateProfileBody>;
 
@@ -26,7 +24,6 @@ export const ProfileScreenForm = memo(({ className }: ProfileScreenForm) => {
     isLoading,
     isSaving,
   } = useProfileForm();
-  const { t } = useTranslation();
 
   const { help } = getValidates(errors.name, touched.name);
 
@@ -45,7 +42,7 @@ export const ProfileScreenForm = memo(({ className }: ProfileScreenForm) => {
         name="name"
         onChange={handleInputChange}
         onBlur={handleBlur}
-        label={t('Пользователь')}
+        label={'Пользователь'}
         required
         errorMessage={help}
       />
@@ -54,12 +51,7 @@ export const ProfileScreenForm = memo(({ className }: ProfileScreenForm) => {
           {status}
         </Text>
       )}
-      <Button
-        label={'Сохранить изменения'}
-        onClick={submitForm}
-        full={false}
-        disabled={isSaving || isLoading}
-      />
+      <Button label={'Сохранить изменения'} onClick={submitForm} full={false} disabled={isSaving || isLoading} />
     </Form>
   );
 });

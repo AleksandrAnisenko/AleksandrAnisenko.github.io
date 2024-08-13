@@ -13,18 +13,10 @@ interface TextProps {
   children: ReactNode;
 }
 
-export const Text = memo(
-  ({ children, className, size = 'm', weight = 'normal', color = 'primary' }: TextProps) => {
-    const classNames = cn(
-      s.text,
-      className,
-      s[`color_${color}`],
-      s[`size_${size}`],
-      s[`weight_${weight}`]
-    );
+export const Text = memo(({ children, className, size = 'm', weight = 'normal', color = 'primary' }: TextProps) => {
+  const classNames = cn(s.text, className, s[`color_${color}`], s[`size_${size}`], s[`weight_${weight}`]);
 
-    return <div className={cn(classNames)}>{children}</div>;
-  }
-);
+  return <div className={cn(classNames)}>{children}</div>;
+});
 
 Text.displayName = 'Text';

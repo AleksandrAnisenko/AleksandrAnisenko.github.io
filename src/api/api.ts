@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from 'src/shared/consts/api';
+import { API_URL } from '../shared/consts/api';
 
 const getAuthorizationToken = () => `Bearer ${localStorage.getItem('token') || ''}`;
 

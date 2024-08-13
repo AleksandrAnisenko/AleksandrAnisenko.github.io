@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react';
-
 import { OperationShortView } from './OperationShortView';
 
 const meta: Meta<typeof OperationShortView> = {

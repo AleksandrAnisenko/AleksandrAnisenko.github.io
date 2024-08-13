@@ -1,4 +1,4 @@
-import { FormProps } from "../Forms/types";
+import { FormProps } from '../Forms/types';
 
 export type ProfileFormValues = {
   name: string;

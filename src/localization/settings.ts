@@ -9,15 +9,13 @@ export enum Locale {
   en = 'en',
 }
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: localStorage.getItem(LANG_STORAGE_KEY) || Locale.ru,
+i18n.use(initReactI18next).init({
+  resources,
+  lng: localStorage.getItem(LANG_STORAGE_KEY) || Locale.ru,
 
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;

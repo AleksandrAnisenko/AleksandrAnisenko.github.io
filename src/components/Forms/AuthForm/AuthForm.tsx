@@ -1,10 +1,10 @@
 import React, { memo, MutableRefObject } from 'react';
-import { TextField } from '../TextField/TextField';
-import { Form } from 'src/shared/form/Form';
 import { FormikContextType } from 'formik';
+import { Button } from '../../Button/Button';
+import { Form } from '../../../shared/form/Form';
 import { getValidates } from '../Forms/validations';
 import { Text } from '../TextField/Text';
-import { Button } from 'src/components/Button/Button';
+import { TextField } from '../TextField/TextField';
 
 export type AuthFormValues = {
   email: string;
@@ -26,16 +26,7 @@ interface FormProps<Values = unknown> {
 export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) => {
   if (!formManager) return null;
 
-  const {
-    submitForm,
-    touched,
-    errors,
-    handleBlur,
-    handleSubmit,
-    handleChange,
-    values,
-    status,
-  } = formManager;
+  const { submitForm, touched, errors, handleBlur, handleSubmit, handleChange, values, status } = formManager;
 
   const { help: helpEmail } = getValidates(errors.email, touched.email);
   const { help: helpPassword } = getValidates(errors.password, touched.password);

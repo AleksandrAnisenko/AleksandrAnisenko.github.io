@@ -10,12 +10,12 @@ export const getFakeApi = async (): Promise<void> => {
 //
 // // Мы это не проходили, но по тексту ошибки можно понять, как это починить
 export class SomeClass {
-    set: Set<number>;
-    channel: BroadcastChannel;
-    constructor() {
-        this.set = new Set([1]);
-        this.channel = new BroadcastChannel('test-broadcast-channel');
-    }
+  set: Set<number>;
+  channel: BroadcastChannel;
+  constructor() {
+    this.set = new Set([1]);
+    this.channel = new BroadcastChannel('test-broadcast-channel');
+  }
 }
 
 export type Data = {

@@ -1,0 +1,29 @@
+.outer {
+  display: grid;
+  flex-direction: column;
+}
+
+.item {
+  display: block;
+  background: fff;
+  overflow: hidden;
+}
+
+.pic {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 2.36;
+  object-fit: cover;
+}
+
+.content {
+  text-align: center;
+  color: black;
+}
+
+.link {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}

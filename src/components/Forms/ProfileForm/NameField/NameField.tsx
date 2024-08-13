@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { Input } from 'antd';
-import { FormikHandlers } from 'formik/dist/types';
 import { UserOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
+import { FormikHandlers } from 'formik/dist';
 import { useTranslation } from 'react-i18next';
-import { ProfileFormProps } from '../types';
-import { getValidates } from '../../Forms/validations';
 import { FormItem } from '../../Forms/FormItem/FormItem';
+import { getValidates } from '../../Forms/validations';
+import { ProfileFormProps } from '../types';
 
 export type NameFieldProps = Pick<ProfileFormProps, 'className' | 'disabled' | 'autoFocusElement'> & {
   touched: boolean;
@@ -24,12 +24,7 @@ export const NameField = memo<NameFieldProps>(
     const { validateStatus, help } = getValidates(errors, touched);
 
     return (
-      <FormItem
-        title='Имя'
-        required
-        validateStatus={validateStatus}
-        help={help}
-      >
+      <FormItem title="Имя" required validateStatus={validateStatus} help={help}>
         <Input
           prefix={prefix}
           disabled={disabled}
@@ -40,7 +35,7 @@ export const NameField = memo<NameFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           value={value}
-          placeholder='Имя'
+          placeholder="Имя"
         />
       </FormItem>
     );

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import s from './Tytle.module.scss'
+import s from './Tytle.module.scss';
 
 export type TitleProps = React.HTMLAttributes<HTMLDivElement> & {
   className?: string;
@@ -7,6 +7,4 @@ export type TitleProps = React.HTMLAttributes<HTMLDivElement> & {
   required?: boolean;
 };
 
-export const Title: FC<TitleProps> = ({ className, required, ...props }) => (
-  <div {...props} className={s.root} />
-);
+export const Title: FC<TitleProps> = ({ className, required, ...props }) => <div {...props} className={s.root} />;

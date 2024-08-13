@@ -10,10 +10,8 @@ export interface ErrorResponse {
 
 const DEFAULT_MESSAGE = 'Неизвестная ошибка';
 
-export const getErrorMessage = (
-  err: Error | AxiosError<Response>,
-  defaultMassage = DEFAULT_MESSAGE
-) => (isAxiosError(err) ? err.response?.data.errors[0]?.message || err.message : defaultMassage);
+export const getErrorMessage = (err: Error | AxiosError<Response>, defaultMassage = DEFAULT_MESSAGE) =>
+  isAxiosError(err) ? err.response?.data.errors[0]?.message || err.message : defaultMassage;
 
 export const errorHandler = <Response = ErrorResponse>(
   err: Error | AxiosError<Response>,

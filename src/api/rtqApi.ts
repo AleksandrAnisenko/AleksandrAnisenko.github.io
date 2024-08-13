@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { getAuthorizationToken } from 'src/helpers';
-import { API_URL } from 'src/shared/consts/api';
+import { getAuthorizationToken } from '../helpers';
+import { API_URL } from '../shared/consts/api';
 
 export type AuthResult = {
   token: string;
@@ -17,5 +17,4 @@ export const rtkApi = createApi({
     },
   }),
   endpoints: () => ({}),
-  
 });

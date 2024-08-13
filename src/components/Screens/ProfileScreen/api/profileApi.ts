@@ -1,7 +1,6 @@
-import { rtkApi } from 'src/api/rtqApi';
+import { rtkApi } from '../../../../api/rtqApi';
+import { transformErrorResponse } from '../../../../shared/utils/ErrorResponse';
 import { Profile, UpdateProfileBody } from '../profileTypes';
-import { transformErrorResponse } from 'src/shared/utils/ErrorResponse';
-
 
 export const profileApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -14,12 +13,12 @@ export const profileApi = rtkApi.injectEndpoints({
       transformErrorResponse,
     }),
     editProfile: build.mutation<Profile, UpdateProfileBody>({
-        query: (values) => ({
-          url: '/profile',
-          method: 'PUT',
-          body: values,
-        }),
-        transformErrorResponse,
+      query: (values) => ({
+        url: '/profile',
+        method: 'PUT',
+        body: values,
+      }),
+      transformErrorResponse,
     }),
   }),
 });

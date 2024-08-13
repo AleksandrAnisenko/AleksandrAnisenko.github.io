@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useMemo } from 'react';
-import { useFormik } from 'formik';
-import { FormikErrors } from 'formik/dist';
+import { FormikErrors, useFormik } from 'formik/dist';
 import { useTranslation } from 'react-i18next';
-import { UpdateProfileBody } from '../profileTypes';
+import { isNotDefinedString } from '../../../Forms/Forms/validations';
 import { useEditProfileMutation, useGetProfileQuery } from '../api/profileApi';
-import { isNotDefinedString } from 'src/components/Forms/Forms/validations';
+import { UpdateProfileBody } from '../profileTypes';
 
 type ProfileFormErrors = FormikErrors<UpdateProfileBody>;
 
@@ -15,7 +14,7 @@ export const useProfileForm = () => {
 
   const initialValues: UpdateProfileBody = useMemo(
     () => ({
-        name: profile?.name || '13',
+      name: profile?.name || '',
     }),
     [profile]
   );
