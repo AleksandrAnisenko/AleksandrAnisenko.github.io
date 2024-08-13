@@ -18,7 +18,7 @@ export interface AuthFormProps extends FormProps<AuthFormValues> {
 interface FormProps<Values = unknown> {
   className?: string;
   disabled?: boolean;
-  formManager?: FormikContextType<Values>;
+  formManager: FormikContextType<Values>;
   formElement?: MutableRefObject<HTMLFormElement>;
   autoFocusElement?: MutableRefObject<HTMLInputElement>;
 }

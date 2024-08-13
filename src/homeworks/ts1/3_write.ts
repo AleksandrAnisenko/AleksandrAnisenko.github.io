@@ -63,26 +63,6 @@ type TProduct = {
   category: TCategory;
 };
 
-type TCost = {
-  id: string;
-  name: string;
-  desc?: string;
-  createdAt: string;
-  amount: number;
-  category: TCategory;
-  type: 'Cost';
-};
-
-type TProfit = {
-  id: string;
-  name: string;
-  desc?: string;
-  createdAt: string;
-  amount: number;
-  category: TCategory;
-  type: 'Profit';
-};
-
 type TArrElem = string | TCategory;
 
 /**
@@ -129,8 +109,6 @@ const getCategory = (): TCategory => {
  * Создает случайную операцию (Operation).
  * Принимает дату создания (строка)
  * */
-
-type TType = 'Cost' | 'Profit';
 
 export const createRandomOperation = (): TOperation => {
   const selectedCategory: string = 'Категория' + ` ${getRandomInt(1, 10)}`;

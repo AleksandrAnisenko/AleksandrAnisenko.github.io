@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { NameField } from './NameField/NameField';
 import { ProfileFormProps } from './types';
 
 export const ProfileForm = memo<ProfileFormProps>(({ formManager, formElement, autoFocusElement, disabled }) => {
